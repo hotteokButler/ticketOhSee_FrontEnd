@@ -1,0 +1,24 @@
+@charset 'utf-8';
+/* 
+(beforeLogin)/Layout.tsx
+*/
+
+/* ====== (beforeLogin)/Layout.tsx START ====== */
+.main_wrapper  {
+  position: relative;
+  width: 100dvw;
+  max-width: 780px;
+  margin: 0 auto;
+  min-height: 100dvh;
+}
+
+.main_top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 20px 40px;
+}
+.main_con {
+  
+}
+/* ====== (beforeLogin)/Layout.tsx E N D ====== */

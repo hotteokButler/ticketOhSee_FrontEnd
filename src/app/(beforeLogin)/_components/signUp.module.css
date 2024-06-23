@@ -1,0 +1,10 @@
+@charset 'utf-8';
+/* 
+SignUp.tsx
+*/
+.sub_title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin: 0 auto 15px;
+}
