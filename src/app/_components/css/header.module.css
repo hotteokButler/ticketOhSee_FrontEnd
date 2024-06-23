@@ -1,0 +1,64 @@
+@charset 'utf-8';
+/* component list (header 관련)
+Header.tsx
+Logo.tsx
+SearchCon.tsx
+*/
+
+/* ====== Header.tsx START ====== */
+.header_wrap {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+}
+.header {
+  width: 100%;
+  padding: 10px 0;
+  max-width: 1240px;
+  display: flex;
+  align-items: center;
+}
+
+/* ====== Header.tsx E N D ====== */
+
+/* ====== Logo.tsx START ====== */
+.logo {
+  padding: 10px;
+  font-size: 2rem;
+  font-weight: 900;
+  font-variant: small-caps;
+  letter-spacing: -0.04em;
+  background: var(--logo-text-gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+/* ====== Logo.tsx E N D ====== */
+
+/* ====== SearchCon.tsx START ====== */
+.search_con {
+  width: 80%;
+  max-width: 700px;
+}
+.search_input {
+  border: 1px solid var(--border-color);
+  width: 100%;
+  margin: 5px 10px 0;
+  border-radius: 10rem;
+  position: relative;
+}
+.search_input input {
+  padding: 10px 15px;
+  width: 100%;
+  font-size: 1rem;
+  line-height: 1.2;
+}
+.search_input span {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translate(0, -42%);
+  color: #ccc;
+}
+/* ====== SearchCon.tsx E N D ====== */
