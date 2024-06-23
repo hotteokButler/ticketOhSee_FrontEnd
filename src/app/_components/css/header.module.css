@@ -42,17 +42,23 @@ SearchCon.tsx
   max-width: 700px;
 }
 .search_input {
-  border: 1px solid var(--border-color);
   width: 100%;
   margin: 5px 10px 0;
-  border-radius: 10rem;
   position: relative;
 }
 .search_input input {
+  border: 1px solid var(--border-color);
+  border-radius: 10rem;
   padding: 10px 15px;
   width: 100%;
   font-size: 1rem;
   line-height: 1.2;
+}
+.search_input input:focus {
+  border-color: var(--input-focus);
+}
+.search_input input:focus ~ span {
+  color: var(--input-focus);
 }
 .search_input span {
   position: absolute;
@@ -62,3 +68,25 @@ SearchCon.tsx
   color: #ccc;
 }
 /* ====== SearchCon.tsx E N D ====== */
+
+/* ====== HeaderTabs.tsx START ====== */
+.headerTab_btn {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  font-size: 0.9rem;
+  margin: 0 0 0 15px;
+}
+.headerTab_btn a {
+  margin: 0 4px;
+  transition: 0.2s;
+}
+.headerTab_btn a:hover {
+  color: var(--primary-color);
+  font-weight: 700;
+  letter-spacing: -0.01px;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+/* ====== HeaderTabs.tsx E N D ====== */

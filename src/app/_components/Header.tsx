@@ -2,6 +2,7 @@ import React from 'react';
 import Logo from './Logo';
 import sty from './css/header.module.css';
 import SearchCon from './SearchCon';
+import HeaderTabs from './HeaderTabs';
 
 export default function Header() {
   return (
@@ -9,6 +10,7 @@ export default function Header() {
       <div  className={sty.header}>
         <Logo />
         <SearchCon />
+        <HeaderTabs/>
       </div>
     </header>
   );

@@ -20,7 +20,7 @@ export default function SearchCon() {
   return (
     <form className={sty.search_con} onSubmit={handleSubmit(onSubmit)}>
       <label htmlFor='searchQuery' className={sty.search_input}>
-        <input type='text' id='searchQuery' placeholder='Search' {...register('searchQuery')} />
+        <input type='text' id='searchQuery' placeholder='Search' {...register('searchQuery',{required: true})} />
         <span><GoSearch/></span>
       </label>
     </form>
