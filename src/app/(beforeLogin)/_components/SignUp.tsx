@@ -42,7 +42,7 @@ export default function SignUp() {
     setError,
     clearErrors,
     reset,
-    formState: { errors ,isValid },
+    formState: { errors, isValid },
   } = useForm<ISignUpForm>({ mode: 'all', defaultValues: { email_selection: emailSelection.self } });
 
   //아이디 중복체크
@@ -106,7 +106,7 @@ export default function SignUp() {
 
   return (
     <>
-    <Subtitle sub_text='회원가입'/>
+      <Subtitle sub_text='회원가입' />
       <div className={sty.signup_wrap}>
         <form onSubmit={handleSubmit(onSubmit)}>
           {/* 아이디 */}
@@ -188,8 +188,8 @@ export default function SignUp() {
               placeholder='주소를 입력해주세요'
               value={userAddress}
               {...register('address', {
-                required: "주소검색 후 입력해주세요",
-                validate: () => userAddress !=='',
+                required: '주소검색 후 입력해주세요',
+                validate: () => userAddress !== '',
               })}
             />
 
