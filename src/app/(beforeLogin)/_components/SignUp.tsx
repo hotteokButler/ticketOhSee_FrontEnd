@@ -184,9 +184,9 @@ export default function SignUp() {
             <input
               type='text'
               id='address'
-              value={userAddress}
+              placeholder='주소를 입력해주세요'
               {...register('address', {
-                required: '주소 검색 후 입력해주세요.',
+                required: "주소검색 후 입력해주세요",
                 value: userAddress && userAddress,
               })}
             />
