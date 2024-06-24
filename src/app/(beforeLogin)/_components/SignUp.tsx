@@ -6,6 +6,7 @@ import ErrorMessage from './ErrorMessage';
 import PostCode from '@/app/_lib/PostCode';
 import classNames from 'classnames/bind';
 import SubmitButton from './SubmitButton';
+import Subtitle from './Subtitle';
 
 const cx = classNames.bind(sty);
 
@@ -105,7 +106,7 @@ export default function SignUp() {
 
   return (
     <>
-      <h3 className={sty.sub_title}>회원가입</h3>
+    <Subtitle sub_text='회원가입'/>
       <div className={sty.signup_wrap}>
         <form onSubmit={handleSubmit(onSubmit)}>
           {/* 아이디 */}
