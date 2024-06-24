@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import Postcode, { IAddress } from '@/app/_lib/PostCode';
+import Postcode, { IAddress} from '@/app/_lib/PostCode';
 import { IoIosCloseCircle } from 'react-icons/io';
 
 export default function SearchPost({ user_address, setUserAddress, setSearchAddress }: IAddress) {

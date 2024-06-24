@@ -1,16 +1,20 @@
 import React, { Dispatch, SetStateAction } from 'react';
-import DaumPostcodeEmbed from 'react-daum-postcode';
+import { useDaumPostcodePopup } from 'react-daum-postcode';
 
 export interface IAddress {
-  user_address?: string;
+  user_address?: string | any;
   setUserAddress: Dispatch<SetStateAction<string>>;
-  setSearchAddress: Dispatch<SetStateAction<boolean>>;
+  onClickEvent(): void;
 }
 
-export default function Postcode({ user_address, setUserAddress, setSearchAddress }: IAddress) {
+export default function PostCode({ user_address, setUserAddress, onClickEvent }: IAddress) {
+  const postcodeScriptUrl = 'https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js';
+  const open = useDaumPostcodePopup(postcodeScriptUrl);
+
   const handleComplete = (data: any) => {
     let fullAddress = data.address;
     let extraAddress = '';
+    let localAddress = data.sido + ' ' + data.sigungu;
 
     if (data.addressType === 'R') {
       if (data.bname !== '') {
@@ -19,11 +23,21 @@ export default function Postcode({ user_address, setUserAddress, setSearchAddres
       if (data.buildingName !== '') {
         extraAddress += extraAddress !== '' ? `, ${data.buildingName}` : data.buildingName;
       }
+      fullAddress = fullAddress.replace(localAddress, '');
       fullAddress += extraAddress !== '' ? ` (${extraAddress})` : '';
     }
-    setUserAddress(fullAddress);
-    setSearchAddress((prev) => !prev);
+
+    setUserAddress(fullAddress); // setAddress를 호출하여 부모 컴포넌트의 상태를 업데이트
   };
 
-  return <DaumPostcodeEmbed onComplete={handleComplete} {...{ height: '100%', width: '100%' }} />;
+  const handleClick = () => {
+    onClickEvent();
+    open({ onComplete: handleComplete });
+  };
+
+  return (
+    <button type='button' onClick={handleClick}>
+      주소검색
+    </button>
+  );
 }

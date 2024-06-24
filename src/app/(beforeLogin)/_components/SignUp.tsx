@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import sty from './signUp.module.css';
 import SearchPost from '@/app/_components/SearchPost';
 import ErrorMessage from './ErrorMessage';
+import PostCode from '@/app/_lib/PostCode';
 
 const emailSelection: { [key: string]: string } = {
   self: '직접입력',
@@ -122,7 +123,7 @@ export default function SignUp() {
               아이디 중복확인
             </button>
           </div>
-          {/* {errors.user_id && <ErrorMessage message={String(errors.user_id.message)} />} */}
+          {errors.user_id && <ErrorMessage message={String(errors.user_id.message)} />}
 
           {/* 비밀번호 */}
           <div className='signup_input_con'>
@@ -185,19 +186,18 @@ export default function SignUp() {
                 value: userAddress && userAddress,
               })}
             />
-            <button
-              type='button'
-              className='valid_check_btn'
-              onClick={() => {
+
+            <PostCode
+              onClickEvent={() => {
                 setSearchAddress((prev) => !prev);
                 clearErrors('address');
               }}
-            >
-              주소 검색
-            </button>
+              setUserAddress={setUserAddress}
+              setSearchAddress={setSearchAddress}
+            />
+
             {/* search post modal */}
           </div>
-          {searchAddress && <SearchPost setUserAddress={setUserAddress} setSearchAddress={setSearchAddress} />}
           <div className='signup_input_con detail_address_con'>
             <input type='text' id='detail_address' placeholder='상세주소 입력' {...register('detail_address')} />
           </div>
@@ -256,7 +256,7 @@ export default function SignUp() {
           </div>
           {errors.phone && <ErrorMessage message={String(errors.phone.message)} />}
 
-          <button type="submit">가입완료</button>
+          <button type='submit'>가입완료</button>
         </form>
       </div>
     </>
