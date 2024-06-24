@@ -1,6 +1,7 @@
 @charset 'utf-8';
 /* 
 SignUp.tsx
+ErrorMessage.tsx
 */
 .sub_title {
   font-size: 1.5rem;
@@ -8,5 +9,55 @@ SignUp.tsx
   text-align: center;
   margin: 0 auto 15px;
 }
+.signup_wrap {
+  max-width: 600px;
+  padding: 20px 10px;
+  margin: 0 auto;
+}
 
-.signup_input_con {}
+.signup_input_con {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 15px 10px;
+  margin: 20px 0 5px;
+  border-bottom: 1px solid var(--border-color);
+}
+.signup_input_con label {
+  min-width: 50px;
+  width: 20%;
+  word-break: keep-all;
+  font-weight: 600;
+  line-height: 1.3;
+}
+.signup_input_con input {
+  flex: 1;
+}
+
+.signup_input_con.detail_address_con {
+  width: 85%;
+  margin: 10px 0 10px auto;
+}
+.valid_check_btn {
+  position: absolute;
+  top: 50%;
+  right: 0%;
+  padding: 7px 10px;
+  border-radius: 2px;
+  font-size: 0.7rem;
+  transform: translate(0%, -50%);
+  background: var(--sm-button-color);
+  transition: 0.2s;
+}
+.valid_check_btn:hover {
+  background: var(--sm-button-hov-color);
+  color: var(--white-color);
+}
+
+.error_message {
+  display: flex;
+  align-items: center;
+  font-size: 0.8rem;
+  color: var(--error-color);
+  padding: 5px 5px 5px 10px;
+}

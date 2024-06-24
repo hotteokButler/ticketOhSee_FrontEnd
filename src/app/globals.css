@@ -7,15 +7,18 @@
   --logo-text-gradient: linear-gradient(#ffcdf0 10%, #9acbff 100%);
   --backgound: #fff;
   --font-color: #232323;
-  
+  --error-color:#ff5436;
 }
 
 body[data-theme='light_mode'] {
   --backgound: #fff;
+  --white-color: #fff;
   --font-color: #232323;
   --border-color:#ddd;
   --input-focus :#9acbff;
   --primary-color:#77b2f1;
+  --sm-button-color:#dee8f3;
+  --sm-button-hov-color:#8097b0;
 }
 
 * {
@@ -156,10 +159,11 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
-button {
+button ,select{
   outline: none;
   background: none;
   border: none;
+  cursor: pointer;
 }
 a {
   display: block;
@@ -173,6 +177,7 @@ input,label {
   border: none;
   outline: none;
   background: none;
+  cursor: pointer;
 }
 body[data-theme='dark_mode'] {
   /* 후에 다크모드 추가시 */

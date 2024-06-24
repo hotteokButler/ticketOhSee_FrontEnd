@@ -4,7 +4,7 @@
 */
 
 /* ====== (beforeLogin)/Layout.tsx START ====== */
-.main_wrapper  {
+.main_wrapper {
   position: relative;
   width: 100dvw;
   max-width: 780px;
@@ -16,9 +16,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px 20px 40px;
+  padding: 30px 20px 50px;
 }
 .main_con {
-  
 }
 /* ====== (beforeLogin)/Layout.tsx E N D ====== */

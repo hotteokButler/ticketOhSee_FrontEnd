@@ -4,6 +4,10 @@ import React, { useState } from 'react';
 import sty from './signUp.module.css';
 import ErrorMessage from './ErrorMessage';
 import PostCode from '@/app/_lib/PostCode';
+import classNames from 'classnames/bind';
+import SubmitButton from './SubmitButton';
+
+const cx = classNames.bind(sty);
 
 const emailSelection: { [key: string]: string } = {
   self: '직접입력',
@@ -98,12 +102,14 @@ export default function SignUp() {
 
     reset();
   };
+
   return (
     <>
-      <div className='signup_wrap'>
+      <h3 className={sty.sub_title}>회원가입</h3>
+      <div className={sty.signup_wrap}>
         <form onSubmit={handleSubmit(onSubmit)}>
           {/* 아이디 */}
-          <div className='signup_input_con'>
+          <div className={sty.signup_input_con}>
             <label htmlFor='user_id'>아이디</label>
             <input
               type='text'
@@ -117,14 +123,14 @@ export default function SignUp() {
                 },
               })}
             />
-            <button type='button' className='valid_check_btn' onClick={checkIdExists}>
+            <button type='button' className={sty.valid_check_btn} onClick={checkIdExists}>
               아이디 중복확인
             </button>
           </div>
           {errors.user_id && <ErrorMessage message={String(errors.user_id.message)} />}
 
           {/* 비밀번호 */}
-          <div className='signup_input_con'>
+          <div className={sty.signup_input_con}>
             <label htmlFor='password'>비밀번호</label>
             <input
               type='password'
@@ -140,7 +146,7 @@ export default function SignUp() {
             />
           </div>
           {errors.password && <ErrorMessage message={String(errors.password.message)} />}
-          <div className='signup_input_con'>
+          <div className={sty.signup_input_con}>
             <label htmlFor='password'>비밀번호 확인</label>
             <input
               type='password'
@@ -155,7 +161,7 @@ export default function SignUp() {
           {errors.password_check && <ErrorMessage message={String(errors.password_check.message)} />}
 
           {/* 이름 */}
-          <div className='signup_input_con'>
+          <div className={sty.signup_input_con}>
             <label htmlFor='user_name'>이름</label>
             <input
               type='text'
@@ -173,7 +179,7 @@ export default function SignUp() {
           {errors.user_name && <ErrorMessage message={String(errors.user_name.message)} />}
 
           {/* 주소 */}
-          <div className='signup_input_con'>
+          <div className={sty.signup_input_con}>
             <label htmlFor='address'>주소</label>
             <input
               type='text'
@@ -194,13 +200,13 @@ export default function SignUp() {
 
             {/* search post modal */}
           </div>
-          <div className='signup_input_con detail_address_con'>
+          <div className={cx('signup_input_con', 'detail_address_con')}>
             <input type='text' id='detail_address' placeholder='상세주소 입력' {...register('detail_address')} />
           </div>
           {errors.address && <ErrorMessage message={String(errors.address.message)} />}
 
           {/* 이메일 */}
-          <div className='signup_input_con email_input_con'>
+          <div className={cx('signup_input_con', 'email_input_con')}>
             <label htmlFor='email'>이메일</label>
             <input
               type='text'
@@ -232,7 +238,7 @@ export default function SignUp() {
           {errors.email && <ErrorMessage message={String(errors.email.message)} />}
 
           {/* 휴대폰 */}
-          <div className='signup_input_con'>
+          <div className={sty.signup_input_con}>
             <label htmlFor='phone'>휴대폰</label>
             <input
               type='text'
@@ -246,13 +252,13 @@ export default function SignUp() {
                 },
               })}
             />
-            <button type='button' className='valid_check_btn' onClick={checkValidPhone}>
+            <button type='button' className={sty.valid_check_btn} onClick={checkValidPhone}>
               인증번호 받기
             </button>
           </div>
           {errors.phone && <ErrorMessage message={String(errors.phone.message)} />}
 
-          <button type='submit'>가입완료</button>
+          <SubmitButton btn_type='submit' btn_text='가입완료' isDisabled={true} />
         </form>
       </div>
     </>
