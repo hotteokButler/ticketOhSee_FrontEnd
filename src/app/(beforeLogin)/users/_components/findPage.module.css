@@ -1,0 +1,45 @@
+@charset 'utf-8';
+
+/* 
+FindUser.tsx
+FindPassword.tsx
+FindPageNavTab.tsx
+*/
+
+.find_nav_wrap {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.find_nav_wrap a {
+  padding: 18px 10px;
+  border-radius: 2px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  background: var(--sm-button-color);
+  color: var(--white-color);
+  text-align: center;
+  transition: 0.2s;
+}
+.find_nav_wrap a:hover,
+.find_nav_wrap a.on {
+  background: var(--primary-color);
+}
+.find_help {
+  display: block;
+  margin: 10px 0 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--font-help);
+}
+
+.find_wrap {
+  width: 100%;
+  max-width: 550px;
+  margin: 0 auto;
+}
+
+.find_form {
+}

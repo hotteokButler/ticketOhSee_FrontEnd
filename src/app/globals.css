@@ -19,6 +19,7 @@ body[data-theme='light_mode'] {
   --primary-color:#77b2f1;
   --sm-button-color:#dee8f3;
   --sm-button-hov-color:#8097b0;
+  --font-help : #b2b2b2;
 }
 
 * {
