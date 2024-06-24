@@ -1,0 +1,21 @@
+@charset 'utf-8';
+
+.submit_btn {
+  width: 100%;
+  max-width: 500px;
+  display: block;
+  margin: 20px auto;
+  padding: 15px 10px;
+  border-radius: 2px;
+  text-align: center;
+  font-weight: 600;
+  letter-spacing: 1px;
+  font-size: 1.2rem;
+  color: var(--white-color);
+  background: var(--primary-color);
+  transition: 0.2s;
+}
+
+.submit_btn:disabled {
+  background:var(--border-color);
+}
