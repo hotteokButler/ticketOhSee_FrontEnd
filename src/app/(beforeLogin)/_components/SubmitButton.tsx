@@ -9,7 +9,7 @@ type IProp = {
 
 export default function SubmitButton({ btn_text, btn_type, isDisabled }: IProp) {
   return (
-    <button className={sty.submit_btn} type={btn_type !== undefined ? btn_type : 'button'} disabled={!isDisabled}>
+    <button className={sty.submit_btn} type={btn_type !== undefined ? btn_type : 'button'} disabled={isDisabled}>
       {btn_text}
     </button>
   );

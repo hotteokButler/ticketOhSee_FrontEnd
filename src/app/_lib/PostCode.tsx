@@ -1,3 +1,5 @@
+'use client';
+
 import React, { Dispatch, SetStateAction } from 'react';
 import { useDaumPostcodePopup } from 'react-daum-postcode';
 import sty from '../(beforeLogin)/_components/signUp.module.css';
@@ -41,12 +43,13 @@ export default function PostCode({ user_address, setUserAddress, onClickEvent }:
         extraAddr = ' (' + extraAddr + ')';
       }
     }
-    setUserAddress(`[${zcode}] ${addr} ${extraAddr}`); // setAddress를 호출하여 부모 컴포넌트의 상태를 업데이트
+
+    setUserAddress((p) => `[${zcode}] ${addr} ${extraAddr}`); // setAddress를 호출하여 부모 컴포넌트의 상태를 업데이트
   };
 
   const handleClick = () => {
-    onClickEvent();
     open({ onComplete: handleComplete });
+    onClickEvent();
   };
 
   return (

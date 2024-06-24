@@ -41,7 +41,7 @@ export default function SignUp() {
     setError,
     clearErrors,
     reset,
-    formState: { errors },
+    formState: { errors ,isValid },
   } = useForm<ISignUpForm>({ mode: 'all', defaultValues: { email_selection: emailSelection.self } });
 
   //아이디 중복체크
@@ -185,9 +185,10 @@ export default function SignUp() {
               type='text'
               id='address'
               placeholder='주소를 입력해주세요'
+              value={userAddress}
               {...register('address', {
                 required: "주소검색 후 입력해주세요",
-                value: userAddress && userAddress,
+                validate: () => userAddress !=='',
               })}
             />
 
@@ -258,7 +259,7 @@ export default function SignUp() {
           </div>
           {errors.phone && <ErrorMessage message={String(errors.phone.message)} />}
 
-          <SubmitButton btn_type='submit' btn_text='가입완료' isDisabled={true} />
+          <SubmitButton btn_type='submit' btn_text='가입완료' isDisabled={!isValid} />
         </form>
       </div>
     </>
