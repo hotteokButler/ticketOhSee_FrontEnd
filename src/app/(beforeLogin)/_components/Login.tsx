@@ -2,6 +2,7 @@
 
 import { useForm, SubmitHandler } from 'react-hook-form';
 import React, { useState } from 'react';
+import { FcGoogle } from "react-icons/fc";
 import sty from './login.module.css';
 import ErrorMessage from './ErrorMessage';
 import classNames from 'classnames/bind';
@@ -77,6 +78,7 @@ export default function Login() {
           {errors.password && <ErrorMessage message={String(errors.password.message)} />}
           <SubmitButton btn_type='submit' btn_text='로그인' isDisabled={!isValid} />
         </form>
+        <button className={sty.login_google} type="button"><FcGoogle/>구글 로그인</button>
       </div>
     </>
   );

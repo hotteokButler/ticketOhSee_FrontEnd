@@ -1,5 +1,11 @@
 @charset 'utf-8';
 
+/* 
+Login.tsx
+LoginNavBtns.tsx
+
+*/
+
 .login_wrap {
   max-width: 500px;
   width: 100%;
@@ -17,4 +23,28 @@
 }
 .login_input_con input:focus {
   border-color: var(--input-focus);
+}
+
+.login_google {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: -10px auto 10px;
+  padding: 10px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border-radius: 2px;
+  border: 1px solid var(--border-color);
+  transition: 0.2s;
+  background-color: transparent;
+}
+.login_google:hover{
+  background-color: var(--border-color);
+  color: var(--white-color);
+}
+.login_google svg {
+  width: 30px;
+  height: 30px;
+  margin-right: 4px;
 }
