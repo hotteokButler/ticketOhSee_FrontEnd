@@ -1,12 +1,20 @@
 @charset 'utf-8';
 
-.sub_title {
-  font-size: 1.5rem;
-  font-weight: 700;
-  text-align: center;
-  margin: 0 auto 15px;
+.login_wrap {
+  max-width: 500px;
+  width: 100%;
+  margin: 60px auto;
 }
 
-.login_wrap {
-
+.login_input_con {
+}
+.login_input_con input {
+  width: 100%;
+  border-radius: 2px;
+  border: 1px solid var(--border-color);
+  padding: 15px 10px;
+  margin: 10px auto;
+}
+.login_input_con input:focus {
+  border-color: var(--input-focus);
 }

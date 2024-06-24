@@ -43,7 +43,7 @@ export default function Login() {
       <div className={sty.login_wrap}>
         <form onSubmit={handleSubmit(onSubmit)}>
           {/* 아이디 */}
-          <div className={sty.signup_input_con}>
+          <div className={sty.login_input_con}>
             <input
               type='text'
               id='user_id'
@@ -60,7 +60,7 @@ export default function Login() {
           {errors.user_id && <ErrorMessage message={String(errors.user_id.message)} />}
 
           {/* 비밀번호 */}
-          <div className={sty.signup_input_con}>
+          <div className={sty.login_input_con}>
             <input
               type='password'
               id='password'
