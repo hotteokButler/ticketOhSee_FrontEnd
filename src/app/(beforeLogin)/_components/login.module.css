@@ -39,7 +39,7 @@ LoginNavBtns.tsx
   transition: 0.2s;
   background-color: transparent;
 }
-.login_google:hover{
+.login_google:hover {
   background-color: var(--border-color);
   color: var(--white-color);
 }
@@ -47,4 +47,38 @@ LoginNavBtns.tsx
   width: 30px;
   height: 30px;
   margin-right: 4px;
+}
+
+.login_navBtn_wrap {
+  display: flex;
+  align-items: center;
+  margin: 15px auto;
+  font-size: 0.9rem;
+}
+.login_navBtn_wrap a {
+  position: relative;
+  font-weight: 500;
+  transition: 0.2s;
+}
+.login_navBtn_wrap a:hover {
+  color: var(--input-focus);
+}
+
+.login_navBtn_wrap a:not(:first-child) {
+  margin: 0 8px;
+}
+.login_navBtn_wrap a:not(:first-child)::after {
+  position: absolute;
+  clear: both;
+  content: '';
+  display: block;
+  background: var(--font-color);
+  width: 2px;
+  height: 12px;
+  top: 50%;
+  left: -9px;
+  transform: translateY(-50%);
+}
+.login_navBtn_wrap a:first-child {
+  margin: 0 8px 0 0;
 }

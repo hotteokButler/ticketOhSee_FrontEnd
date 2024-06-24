@@ -2,12 +2,13 @@
 
 import { useForm, SubmitHandler } from 'react-hook-form';
 import React, { useState } from 'react';
-import { FcGoogle } from "react-icons/fc";
+import { FcGoogle } from 'react-icons/fc';
 import sty from './login.module.css';
 import ErrorMessage from './ErrorMessage';
 import classNames from 'classnames/bind';
 import SubmitButton from './SubmitButton';
 import Subtitle from './Subtitle';
+import LoginNavBtns from './LoginNavBtns';
 
 const cx = classNames.bind(sty);
 
@@ -40,7 +41,7 @@ export default function Login() {
 
   return (
     <>
-    <Subtitle sub_text="로그인"/>
+      <Subtitle sub_text='로그인' />
       <div className={sty.login_wrap}>
         <form onSubmit={handleSubmit(onSubmit)}>
           {/* 아이디 */}
@@ -78,7 +79,11 @@ export default function Login() {
           {errors.password && <ErrorMessage message={String(errors.password.message)} />}
           <SubmitButton btn_type='submit' btn_text='로그인' isDisabled={!isValid} />
         </form>
-        <button className={sty.login_google} type="button"><FcGoogle/>구글 로그인</button>
+        <button className={sty.login_google} type='button'>
+          <FcGoogle />
+          구글 로그인
+        </button>
+        <LoginNavBtns />
       </div>
     </>
   );
