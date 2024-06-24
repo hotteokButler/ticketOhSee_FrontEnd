@@ -2,7 +2,6 @@
 import { useForm, SubmitHandler } from 'react-hook-form';
 import React, { useState } from 'react';
 import sty from './signUp.module.css';
-import SearchPost from '@/app/_components/SearchPost';
 import ErrorMessage from './ErrorMessage';
 import PostCode from '@/app/_lib/PostCode';
 
@@ -57,7 +56,6 @@ export default function SignUp() {
 
   //주소
   const [userAddress, setUserAddress] = useState('');
-  const [searchAddress, setSearchAddress] = useState(false);
 
   // handle submit
   const onSubmit: SubmitHandler<ISignUpForm> = async (data) => {
@@ -189,11 +187,9 @@ export default function SignUp() {
 
             <PostCode
               onClickEvent={() => {
-                setSearchAddress((prev) => !prev);
                 clearErrors('address');
               }}
               setUserAddress={setUserAddress}
-              setSearchAddress={setSearchAddress}
             />
 
             {/* search post modal */}
