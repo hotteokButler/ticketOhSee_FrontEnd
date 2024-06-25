@@ -1,0 +1,111 @@
+@charset 'utf-8';
+
+/* 
+FindUser.tsx
+FindPassword.tsx
+FindPageNavTab.tsx
+*/
+
+.find_nav_wrap {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.find_nav_wrap a {
+  padding: 18px 10px;
+  border-radius: 2px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  background: var(--sm-button-color);
+  color: var(--white-color);
+  text-align: center;
+  transition: 0.2s;
+}
+.find_nav_wrap a:hover,
+.find_nav_wrap a.on {
+  background: var(--primary-color);
+}
+.find_help {
+  display: block;
+  margin: 10px 0 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--font-help);
+}
+
+.find_wrap {
+  width: 100%;
+  max-width: 550px;
+  margin: 0 auto;
+}
+
+.find_form_wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: stretch;
+  padding-bottom: 8px;
+  margin-bottom: 8px;
+}
+.find_form_wrap:not(:last-child) {
+  border-bottom: 1px solid var(--border-color);
+}
+.find_form_toggle {
+  position: relative;
+  width: 100%;
+  padding: 15px;
+  background: var(--toggle-button-color);
+  border-radius: 2px;
+  font-weight: 500;
+  font-size: 1.1rem;
+  text-align: left;
+}
+.find_form_toggle svg {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translate(0%, -50%) rotate(0deg);
+  transition: 0.3s;
+}
+.find_form_toggle.active svg {
+  transform: translate(0%, -50%) rotate(180deg);
+}
+.find_form {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: 0.2s;
+}
+.find_form.active {
+  grid-template-rows: 1fr;
+}
+.find_form form {
+  overflow: hidden;
+}
+.find_form input {
+  display: block;
+  border-radius: 2px;
+  border: 1px solid var(--border-color);
+  width: 100%;
+  margin: 5px 0;
+  padding: 12px 10px;
+}
+.find_form input::placeholder {
+  color: var(--font-help);
+}
+
+.find_form_submit {
+  display: block;
+  width: 100%;
+  font-weight: 500;
+  padding: 12px 10px;
+  color: var(--white-color);
+  background: var(--sm-button-hov-color);
+  transition: 0.2s;
+}
+
+.find_form_submit:disabled {
+  background: var(--sm-button-color);
+  cursor: unset;
+}

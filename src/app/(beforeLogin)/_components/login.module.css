@@ -1,5 +1,11 @@
 @charset 'utf-8';
 
+/* 
+Login.tsx
+LoginNavBtns.tsx
+
+*/
+
 .login_wrap {
   max-width: 500px;
   width: 100%;
@@ -17,4 +23,62 @@
 }
 .login_input_con input:focus {
   border-color: var(--input-focus);
+}
+
+.login_google {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: -10px auto 10px;
+  padding: 10px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border-radius: 2px;
+  border: 1px solid var(--border-color);
+  transition: 0.2s;
+  background-color: transparent;
+}
+.login_google:hover {
+  background-color: var(--border-color);
+  color: var(--white-color);
+}
+.login_google svg {
+  width: 30px;
+  height: 30px;
+  margin-right: 4px;
+}
+
+.login_navBtn_wrap {
+  display: flex;
+  align-items: center;
+  margin: 15px auto;
+  font-size: 0.9rem;
+}
+.login_navBtn_wrap a {
+  position: relative;
+  font-weight: 500;
+  transition: 0.2s;
+}
+.login_navBtn_wrap a:hover {
+  color: var(--input-focus);
+}
+
+.login_navBtn_wrap a:not(:first-child) {
+  margin: 0 8px;
+}
+.login_navBtn_wrap a:not(:first-child)::after {
+  position: absolute;
+  clear: both;
+  content: '';
+  display: block;
+  background: var(--font-color);
+  width: 2px;
+  height: 12px;
+  top: 50%;
+  left: -9px;
+  transform: translateY(-50%);
+}
+.login_navBtn_wrap a:first-child {
+  margin: 0 8px 0 0;
 }

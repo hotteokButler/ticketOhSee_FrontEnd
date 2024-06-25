@@ -1,3 +1,5 @@
-export default function FindPassword() {
-  return <main>FindPassword</main>;
+import FindPassword from "../_components/FindPassword";
+
+export default function FindPasswordPage() {
+  return <FindPassword/>;
 }
