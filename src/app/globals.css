@@ -17,6 +17,7 @@ body[data-theme='light_mode'] {
   --border-color:#ddd;
   --input-focus :#9acbff;
   --primary-color:#77b2f1;
+  --toggle-button-color: #efefef;
   --sm-button-color:#dee8f3;
   --sm-button-hov-color:#8097b0;
   --font-help : #b2b2b2;
