@@ -23,6 +23,9 @@ ErrorMessage.tsx
   margin: 20px 0 5px;
   border-bottom: 1px solid var(--border-color);
 }
+.signup_input_con:last-child {
+  margin: 20px 0 50px;
+}
 .signup_input_con label {
   min-width: 50px;
   width: 20%;

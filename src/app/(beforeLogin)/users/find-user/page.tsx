@@ -1,3 +1,5 @@
-export default function FindUser() {
-  return <main>FindUser</main>;
+import FindUser from "../_components/FindUser";
+
+export default function FindUserPage() {
+  return <FindUser/>;
 }
