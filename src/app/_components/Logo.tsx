@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import React from 'react';
-import sty from './css/header.module.css'
+import sty from './header.module.css'
 
 export default function Logo() {
   return (

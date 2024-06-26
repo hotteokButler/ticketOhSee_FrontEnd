@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import sty from './css/header.module.css';
+import sty from './header.module.css';
 import { GoSearch } from "react-icons/go";
 
 type Input = {

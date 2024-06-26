@@ -1,6 +1,6 @@
 import React from 'react';
 import Logo from './Logo';
-import sty from './css/header.module.css';
+import sty from './header.module.css';
 import SearchCon from './SearchCon';
 import HeaderTabs from './HeaderTabs';
 
