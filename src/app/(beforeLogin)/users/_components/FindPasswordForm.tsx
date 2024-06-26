@@ -7,7 +7,8 @@ import { IoIosArrowDown } from 'react-icons/io';
 import classNames from 'classnames/bind';
 import ErrorMessage from '../../_components/ErrorMessage';
 
-interface IFindUserForm {
+interface IFindPasswordForm {
+  user_id: string;
   user_name: string;
   email?: string;
   phone?: number | string;
@@ -19,7 +20,7 @@ type IProp = {
 
 const cx = classNames.bind(sty);
 
-export default function FindUserForm({ findUserWith }: IProp) {
+export default function FindPasswordForm({ findUserWith }: IProp) {
   const [toggle, setToggle] = useState(true);
   let subtit = '';
 
@@ -43,17 +44,18 @@ export default function FindUserForm({ findUserWith }: IProp) {
     watch,
     reset,
     formState: { errors, isValid },
-  } = useForm<IFindUserForm>({ mode: 'onChange' });
+  } = useForm<IFindPasswordForm>({ mode: 'onChange' });
 
   const handleToggleForm: React.MouseEventHandler<HTMLButtonElement> = (e) => {
     e.preventDefault();
     setToggle((prev) => !prev);
   };
 
-  const onSubmit: SubmitHandler<IFindUserForm> = async (data) => {
-    const { user_name, email, phone } = data;
+  const onSubmit: SubmitHandler<IFindPasswordForm> = async (data) => {
+    const { user_id, user_name, email, phone } = data;
 
-    let new_data: IFindUserForm = {
+    let new_data: IFindPasswordForm = {
+      user_id: user_id.trim(),
       user_name: user_name.trim(),
     };
 
@@ -80,6 +82,18 @@ export default function FindUserForm({ findUserWith }: IProp) {
       </button>
       <div className={cx('find_form', { active: toggle })}>
         <form name={`w_${findUserWith}`} onSubmit={handleSubmit(onSubmit)}>
+          <input
+            type='text'
+            placeholder='아이디'
+            {...register('user_id', {
+              required: '필수 입력 값입니다.',
+              pattern: {
+                value: /^[a-zA-Z0-9]{6,20}$/,
+                message: '올바른 형식으로 입력해주세요',
+              },
+            })}
+          />
+          {errors.user_id?.message && <ErrorMessage message={String(errors.user_id?.message)} />}
           <input
             type='text'
             placeholder='이름'
