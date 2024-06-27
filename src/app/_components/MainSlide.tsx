@@ -24,6 +24,22 @@ export default function MainSlide() {
       thumbs: {
         swiper: swiperTumbRef.current,
       },
+      injectStyles: [
+        `
+        ::slotted(swiper-slide) {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          cursor: grab;
+        }
+        `,
+        `
+        ::slotted(swiper-slide):active {
+          cursor:grabbing;
+        }
+        `
+
+      ],
       // autoplay: {
       //   delay: 5000,
       // },
