@@ -1,14 +1,13 @@
 'use client';
 
 import React, { useEffect, useRef } from 'react';
-import { Swiper } from 'swiper/types';
 import { register } from 'swiper/element-bundle';
 import classNames from 'classnames/bind';
 import sty from './mainSlide.module.css';
+import { SwiperRef } from '@/type/swiper';
 
 const cx = classNames.bind(sty);
 
-type SwiperRef = HTMLElement & { swiper: Swiper; initialize: () => void };
 
 export default function MainSlide() {
   const swiperRef = useRef<SwiperRef>(null);

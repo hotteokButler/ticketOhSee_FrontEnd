@@ -4,6 +4,7 @@
   position: relative;
   width: 100%;
   overflow: hidden;
+  margin: 20px 0;
 }
 .mainSl_wrap {
   overflow: hidden;
@@ -23,7 +24,7 @@
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
-  max-width: 1240px;
+  max-width: 1200px;
   z-index: 3;
 }
 .mainSl_thumb_con {
@@ -32,8 +33,8 @@
   overflow: hidden;
 }
 .mainSl_thumb_img {
-  height: 7dvw;
-  max-height: 88px;
+  height: 6.8dvw;
+  max-height: 84px;
   overflow: hidden;
 }
 .mainSl_thumb_con img {

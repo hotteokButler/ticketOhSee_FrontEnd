@@ -1,0 +1,108 @@
+@charset 'utf-8';
+
+.mainArticle_wrap {
+  width: 100%;
+  max-width: 1260px;
+  margin: 0 auto;
+  padding: 50px 0px 40px;
+}
+
+.mainArticle_wrap h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: -0.03em;
+}
+
+/* slides */
+.mainArticleSl_outer {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  margin: 10px 0;
+  padding: 0 30px;
+}
+.mainArticleSl_wrap {
+  padding: 20px 0;
+}
+.mainArticleSl_li {
+  position: relative;
+}
+.mainArticleSl_li img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+}
+.mainArticleSl_li .img_con {
+  margin: 0 0 8px;
+}
+.mainArticleSl_li .img_con img {
+  border-radius: 4px;
+}
+.mainArticleSl_li .li_tag {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 25px;
+}
+.mainArticleSl_li .li_tag button {
+  border-radius: 2px;
+  padding: 6px 10px;
+  border: 1px solid var(--sm-button-hov-color);
+  color: var(--sm-button-hov-color);
+  font-size: 0.75rem;
+  min-width: 65px;
+  display: inline-block;
+}
+.mainArticleSl_li .li_tag button:not(:last-child) {
+  margin-right: 5px;
+}
+.mainArticleSl_li .li_tit {
+  font-weight: 700;
+  font-size: 1.35rem;
+  letter-spacing: 0.05em;
+  margin-bottom: 10px;
+}
+.mainArticleSl_li .li_sub {
+  margin-bottom: 10px;
+}
+.mainArticleSl_li .li_time {
+  color: var(--font-help);
+  font-size: 0.95rem;
+}
+.mainArticleSl_li .li_time span {
+  font-size: 0.85rem;
+}
+.mainArticleSl_li .li_time svg {
+  margin-right: 2px;
+  vertical-align: top;
+}
+.mainArticleSl_btn {
+  position: absolute;
+  top: 35%;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: var(--sm-button-color);
+  color: var(--white-color);
+  transition: 0.2s;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+.mainArticleSl_btn:hover {
+  background: var(--sm-button-hov-color);
+}
+.mainArticleSl_btn svg {
+  width: 18px;
+  height: 18px;
+  vertical-align: middle;
+  fill: var(--white-color);
+}
+.mainArticleSl_btn_prev {
+  left: 10px;
+}
+.mainArticleSl_btn_next {
+  right: 10px;
+}

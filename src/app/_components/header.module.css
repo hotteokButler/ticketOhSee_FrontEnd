@@ -19,7 +19,7 @@ SearchCon.tsx
 .header {
   width: 100%;
   padding: 10px 0;
-  max-width: 1240px;
+  max-width: 1200px;
   display: flex;
   align-items: center;
 }
