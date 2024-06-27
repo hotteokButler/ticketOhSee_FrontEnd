@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   description: "Ticket-OhSee",
 };
 
+
 export default function RootLayout({
   children,
 }: Readonly<{

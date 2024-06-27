@@ -8,6 +8,7 @@ export default function FindPassword() {
     <div className={sty.find_wrap}>
       <FindPageNavTab />
       <span className={sty.find_help}><sup>*</sup> 비밀번호를 찾을 방법을 선택해 주세요</span>
+      <br />
       <FindPasswordForm findUserWith="email"/>
       <FindPasswordForm findUserWith="phone"/>
     </div>
