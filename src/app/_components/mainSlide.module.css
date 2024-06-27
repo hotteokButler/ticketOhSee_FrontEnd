@@ -5,7 +5,6 @@
   width: 100%;
   overflow: hidden;
 }
-
 .mainSl_wrap {
   overflow: hidden;
 }
@@ -13,7 +12,6 @@
   width: 100%;
   height: auto;
 }
-
 .mainSl_main_wrap {
   position: relative;
   width: 100%;
@@ -32,7 +30,6 @@
   width: 50%;
   margin: 0 auto 0 0;
   overflow: hidden;
-  
 }
 .mainSl_thumb_img {
   height: 7dvw;

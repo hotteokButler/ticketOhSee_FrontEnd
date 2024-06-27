@@ -39,16 +39,17 @@ export default function MainSlide() {
       spaceBetween: 15,
       injectStyles: [
         `
-        ::slotted(swiper-slide){
+        ::slotted(swiper-slide) {
           display: flex;
           justify-content: center;
           align-items: center;
           border-radius: 2px;
-          border :2px solid var(--border-color);
+          border :2px solid var(--white-color);
+          cursor: pointer;
         }
         `,
         `
-        ::slotted(swiper-slide.swiper-slide-thumb-active){
+        ::slotted(swiper-slide.swiper-slide-thumb-active) {
           border-color: var(  --input-focus);
         }
         `,
