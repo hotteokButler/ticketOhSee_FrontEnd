@@ -10,11 +10,16 @@ SearchCon.tsx
   display: flex;
   align-items: stretch;
   justify-content: center;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  background: var(--white-color);
 }
 .header {
   width: 100%;
   padding: 10px 0;
-  max-width: 1240px;
+  max-width: 1200px;
   display: flex;
   align-items: center;
 }
