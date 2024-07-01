@@ -181,6 +181,6 @@ input,label {
   background: none;
   cursor: pointer;
 }
-body[data-theme='dark_mode'] {
-  /* 후에 다크모드 추가시 */
-}
+/* body[data-theme='dark_mode'] {
+  후에 다크모드 추가시
+} */
