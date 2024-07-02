@@ -4,12 +4,14 @@ import React from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import sty from './header.module.css';
 import { GoSearch } from "react-icons/go";
+import { useRouter } from 'next/navigation';
 
 type Input = {
   searchQuery: string;
 };
 
 export default function SearchCon() {
+  const router = useRouter();
   const {
     register,
     handleSubmit,
@@ -18,6 +20,7 @@ export default function SearchCon() {
   } = useForm<Input>();
   const onSubmit: SubmitHandler<Input> = (data) => {
     console.log(data);
+    router.push(`/search?q=${data.searchQuery}`);
     reset();
   };
 
