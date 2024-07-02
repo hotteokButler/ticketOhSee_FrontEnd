@@ -7,20 +7,28 @@
   --logo-text-gradient: linear-gradient(#ffcdf0 10%, #9acbff 100%);
   --backgound: #fff;
   --font-color: #232323;
-  --error-color:#ff5436;
+  --error-color: #ff5436;
+  --md-xxl-dvw : 1400px;
+  --md-xl-dvw : 1200px;
+  --md-lg-dvw : 992px;
+  --md-md-dvw : 768px;
+  --md-sm-dvw : 576px;
 }
 
 body[data-theme='light_mode'] {
   --backgound: #fff;
   --white-color: #fff;
   --font-color: #232323;
-  --border-color:#ddd;
-  --input-focus :#9acbff;
-  --primary-color:#77b2f1;
+  --border-color: #ddd;
+  --input-focus: #9acbff;
+  --primary-color: #77b2f1;
   --toggle-button-color: #efefef;
-  --sm-button-color:#dee8f3;
-  --sm-button-hov-color:#8097b0;
-  --font-help : #b2b2b2;
+  --sm-button-color: #dee8f3;
+  --sm-button-hov-color: #8097b0;
+  --font-help: #b2b2b2;
+  --footer-bg: #525a7f;
+  --footer-font: #c6bfd9;
+  --footer-border: #d2c8e266;
 }
 
 * {
@@ -161,7 +169,8 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
-button ,select{
+button,
+select {
   outline: none;
   background: none;
   border: none;
@@ -173,7 +182,8 @@ a {
   font-size: inherit;
   text-decoration: none;
 }
-input,label {
+input,
+label {
   display: inline-block;
   appearance: none;
   border: none;
@@ -181,6 +191,6 @@ input,label {
   background: none;
   cursor: pointer;
 }
-body[data-theme='dark_mode'] {
-  /* 후에 다크모드 추가시 */
-}
+/* body[data-theme='dark_mode'] {
+  후에 다크모드 추가시
+} */
