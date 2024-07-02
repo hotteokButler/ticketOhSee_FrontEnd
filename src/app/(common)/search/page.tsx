@@ -7,8 +7,6 @@ export default function Home() {
     <>
       <div className={sty.main_search_wrapper}>
         <Header />
-
-
       </div>
       <Footer />
     </>
