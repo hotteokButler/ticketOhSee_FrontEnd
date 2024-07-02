@@ -1,0 +1,23 @@
+@charset 'utf-8';
+
+
+.main_search_wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+}
+.main_search_con {
+  width: 100%;
+  min-height: 100dvh;
+  padding: 10px 0 0;
+  max-width: 1200px;
+  display: flex;
+  align-items: stretch;
+  margin: 20px auto 0;
+}
+
+.search_fillter_wrap {
+  width: 40%;
+  max-width: 400px;
+  background-color: #efefef;
+}
