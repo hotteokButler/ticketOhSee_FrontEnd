@@ -1,6 +1,5 @@
 @charset 'utf-8';
 
-
 .main_search_wrapper {
   position: relative;
   width: 100%;
@@ -9,7 +8,7 @@
 .main_search_con {
   width: 100%;
   min-height: 100dvh;
-  padding: 10px 0 0;
+  padding: 10px 0 30px;
   max-width: 1200px;
   display: flex;
   align-items: stretch;
@@ -19,5 +18,56 @@
 .search_fillter_wrap {
   width: 40%;
   max-width: 400px;
-  background-color: #efefef;
+  margin-right: 20px;
+}
+.search_fillter_con {
+  width: 100%;
+  border-radius: 4px;
+  padding: 25px 15px;
+  border: 1px solid var(--sm-button-color);
+}
+
+.search_fillter_con h4 {
+  font-weight: 600;
+  padding: 0 0 20px;
+  border-bottom: 1px solid var(--sm-button-color);
+  font-size: 1.1rem;
+}
+
+.search_input_con {
+  padding: 25px 0;
+}
+.search_input_con:not(:last-child) {
+  border-bottom: 1px solid var(--sm-button-color);
+}
+
+.search_input_con h5 {
+  font-weight: 600;
+  color: var(--search-sub);
+  margin: 0 0 10px;
+}
+.search_input_sub {
+  display: inline-block;
+  margin: 0 4px;
+  font-size: 0.75rem;
+  vertical-align: baseline;
+  font-weight: 300;
+  color: var(--search-help);
+}
+.search_input_con button {
+  padding: 8px 15px;
+  border: 1px solid var(--border-color);
+  border-radius: 5rem;
+  margin: 4px;
+  font-size: 0.85rem;
+  letter-spacing: -0.02em;
+  background: var(--white-color);
+  transition: 0.2s;
+}
+
+.search_input_con button:hover,
+.search_input_con button.on {
+  color: var(--white-color);
+  border-color: var(--input-focus);
+  background: var(--input-focus);
 }

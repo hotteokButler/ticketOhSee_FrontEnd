@@ -29,6 +29,8 @@ body[data-theme='light_mode'] {
   --footer-bg: #525a7f;
   --footer-font: #c6bfd9;
   --footer-border: #d2c8e266;
+  --search-sub:#555;
+  --search-help:#999;
 }
 
 * {
