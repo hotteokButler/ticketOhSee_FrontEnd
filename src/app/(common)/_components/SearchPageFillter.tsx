@@ -3,61 +3,97 @@
 import React from 'react';
 import sty from './searchPage.module.css';
 import CalendarModule from './CalendarModule';
+import classNames from 'classnames/bind';
+
+type IFillterCatData = {
+  id: number;
+  title: string;
+  isMultiSelect: boolean;
+  FillterBtns: string[] | [];
+};
+
+const cx = classNames.bind(sty);
 
 export default function SearchPageFillter() {
+  const fillterCatData: IFillterCatData[] = [
+    {
+      id: 1,
+      title: '장르',
+      isMultiSelect: true,
+      FillterBtns: ['연극', '뮤지컬', '콘서트', '아동/가족', '클래식/무용', '전시/행사'],
+    },
+    {
+      id: 2,
+      title: '판매상태',
+      isMultiSelect: false,
+      FillterBtns: ['판매중', '판매종료'],
+    },
+    {
+      id: 3,
+      title: '날짜',
+      isMultiSelect: false,
+      FillterBtns: [],
+    },
+    {
+      id: 4,
+      title: '',
+      isMultiSelect: true,
+      FillterBtns: [
+        '서울',
+        '경기',
+        '부산',
+        '전라',
+        '강원',
+        '인천',
+        '대구',
+        '경남',
+        '충청',
+        '대전',
+        '울산',
+        '제주',
+        '광주',
+        '경북',
+      ],
+    },
+  ];
+
   return (
     <aside className={sty.search_fillter_wrap}>
       <div className={sty.search_fillter_con}>
         <h4>필터</h4>
 
-        <div className={sty.search_input_con}>
-          <h5>장르 <span className={sty.search_input_sub}>&#40;중복 선택 가능&#41;</span></h5>
-          <menu>
-            <button type="button" name='연극'>연극</button>
-            <button type="button" name='뮤지컬'>뮤지컬</button>
-            <button type="button" name='콘서트'>콘서트</button>
-            <button type="button" name='아동/가족'>아동&#47;가족</button>
-            <button type="button" name='클래식/무용'>클래식&#47;무용</button>
-            <button type="button" name='전시/행사'>전시&#47;행사</button>
-          </menu>
-        </div>
-
-        <div className={sty.search_input_con}>
-          <h5>판매상태</h5>
-          <menu>
-            <button type="button" name='판매중'>판매중</button>
-            <button type="button" name='판매종료'>판매종료</button>
-          </menu>
-        </div>
-
-        <div className={sty.search_input_con}>
-          <h5>날짜</h5>
-          <div className={sty.search_calender}>
-            <CalendarModule/>
-          </div>
-        </div>
-
-
-        <div className={sty.search_input_con}>
-          <h5>지역 <span className={sty.search_input_sub}>&#40;중복 선택 가능&#41;</span></h5>
-          <menu>
-            <button type="button" name='서울'>서울</button>
-            <button type="button" name='경기'>경기</button>
-            <button type="button" name='부산'>부산</button>
-            <button type="button" name='전라'>전라</button>
-            <button type="button" name='강원'>강원</button>
-            <button type="button" name='인천'>인천</button>
-            <button type="button" name='대구'>대구</button>
-            <button type="button" name='경남'>경남</button>
-            <button type="button" name='충청'>충청</button>
-            <button type="button" name='대전'>대전</button>
-            <button type="button" name='울산'>울산</button>
-            <button type="button" name='제주'>제주</button>
-            <button type="button" name='광주'>광주</button>
-            <button type="button" name='경북'>경북</button>
-          </menu>
-        </div>
-
+        {fillterCatData &&
+          fillterCatData.map(({ id, title, isMultiSelect, FillterBtns }) => {
+            if (title !== '날짜') {
+              // 날짜 카테고리의 경우 캘린더 import
+              return (
+                <div className={sty.search_input_con} key={id}>
+                  <h5>
+                    {title}
+                    {isMultiSelect && <span className={sty.search_input_sub}>&#40;중복 선택 가능&#41;</span>}
+                  </h5>
+                  {FillterBtns.length > 0 && (
+                    <menu className={cx({ search_multiple_select: isMultiSelect })}>
+                      {FillterBtns.map((btns, idx) => (
+                        <button type='button' name={btns} key={idx}>
+                          {btns}
+                        </button>
+                      ))}
+                    </menu>
+                  )}
+                </div>
+              );
+            } else {
+              return (
+                <div className={sty.search_input_con}>
+                  <h5>{title}</h5>
+                  <div className={sty.search_calender}>
+                    <CalendarModule />
+                  </div>
+                </div>
+              );
+            }
+          })}
       </div>
     </aside>
   );

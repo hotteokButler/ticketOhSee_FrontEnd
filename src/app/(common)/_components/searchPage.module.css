@@ -17,7 +17,7 @@
 
 .search_fillter_wrap {
   width: 40%;
-  max-width: 400px;
+  max-width: 370px;
   margin-right: 20px;
 }
 .search_fillter_con {
@@ -44,7 +44,7 @@
 .search_input_con h5 {
   font-weight: 600;
   color: var(--search-sub);
-  margin: 0 0 10px;
+  margin: 0 4px 10px;
 }
 .search_input_sub {
   display: inline-block;
