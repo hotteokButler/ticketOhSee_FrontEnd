@@ -14,6 +14,7 @@ export default function CalendarModule() {
 
   const handleSelectDate = (selectDate: SelectDate): void => {
     setSelectDate(selectDate);
+    console.log(selectDate);
   };
 
   return <Canlender handleSelectDate={handleSelectDate} />;

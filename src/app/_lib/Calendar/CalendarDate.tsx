@@ -43,8 +43,7 @@ export default function CalendarDate({ className, date, selectDate, handleClickD
         type='button'
         disabled={!(isToday || date.isAfter(dayjs(), 'day'))}
         className={cx({
-          is_today : isToday,
-          active_date: selectDate,
+          is_today: isToday,
           is_start_day: isStartDay,
           is_end_day: isEndDay,
           is_select_day: isSelectDate,
