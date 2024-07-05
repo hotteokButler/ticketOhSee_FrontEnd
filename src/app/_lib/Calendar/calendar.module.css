@@ -1,0 +1,146 @@
+@charset 'utf-8';
+
+.calendar_wrap {
+  position: relative;
+  width: 100%;
+}
+.calendar_wrap button {
+  /*타 button 설정 초기화*/
+  border: none;
+  background: transparent;
+  padding: unset;
+  border-radius: unset;
+  margin: unset;
+}
+.calendar_wrap button:hover {
+  border: none;
+  background: transparent;
+  color: unset;
+}
+.calendar_btn_wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.calendar_btn_wrap button {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--search-sub);
+}
+.calendar_btn_wrap button svg {
+  width: 15px;
+  height: 15px;
+}
+.calendar_btn_wrap button:hover {
+  color: var(--primary-color);
+}
+.calendar_wrap .calendar_tit {
+  padding: 25px 0 10px;
+  color: var(--font-color);
+  font-weight: 800;
+  text-align: center;
+}
+
+.calendar_date_wrap {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+}
+.calendar_week_tag button {
+  cursor: default;
+  pointer-events: none;
+  font-weight: 600;
+}
+.calendar_date_wrap button {
+  display: block;
+  text-align: center;
+  width: 100%;
+  height: 5vw;
+  max-width: 48px;
+  margin: 0 auto;
+  max-height: 48px;
+  border: 3px solid transparent;
+  border-radius: 50%;
+}
+.calendar_date_wrap button:hover {
+  background: var(--white-color);
+  color: var(--input-focus);
+  border: 3px solid var(--input-focus);
+}
+/* 오늘 */
+.calendar_date_wrap button.is_today {
+  color: var(--input-focus);
+  font-weight: 800;
+}
+
+/* 선택한 날 */
+.calendar_date_wrap button.is_select_day {
+  border: 3px solid var(--input-focus);
+  color: var(--input-focus);
+  font-weight: 800;
+}
+.calendar_date_wrap button.is_start_day {
+  position: relative;
+  background: var(--date-range);
+  border-color: var(--date-range);
+  color: var(--white-color);
+}
+.calendar_date_wrap button.is_start_day::after,
+.calendar_date_wrap button.is_end_day::after {
+  clear: both;
+  display: block;
+  width: 48px;
+  text-align: center;
+  position: absolute;
+  font-size: 0.75rem;
+  bottom: -20px;
+  left: 50%;
+  color: #b53b25;
+  background: #ffffff76;
+  backdrop-filter: blur(6px);
+  transform: translate(-50%, 0);
+}
+.calendar_date_wrap button.is_start_day::after {
+  content: '시작일';
+}
+.calendar_date_wrap button.is_end_day::after {
+  content: '마지막일';
+}
+.calendar_date_wrap button.is_end_day {
+  position: relative;
+  background: var(--date-range);
+  border-color: var(--date-range);
+  color: var(--white-color);
+}
+
+/* 선택 사이 */
+.calendar_date_wrap button.is_between_select_day {
+  position: relative;
+}
+.calendar_date_wrap button.is_between_select_day:after {
+  position: absolute;
+  display: block;
+  content: '';
+  clear: both;
+  width: 115%;
+  max-height: 30px;
+  height: 4.5vw;
+  background: var(--date-range-bg);
+  top: 50%;
+  left: -4px;
+  transform: translateY(-50%);
+  z-index: -1;
+}
+/* 지난 날 */
+.calendar_date_wrap button:disabled,
+.calendar_date_wrap button:disabled:hover {
+  color: var(--font-help);
+  border-color: transparent !important;
+}
