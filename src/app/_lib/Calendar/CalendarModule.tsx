@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import Canlender from '@/app/_lib/Calendar/Canlender';
+import Canlender from './Canlender';
 import dayjs from 'dayjs';
 import 'dayjs/locale/ko';
 dayjs.locale('ko');

@@ -2,7 +2,7 @@
 
 import React from 'react';
 import sty from './searchPage.module.css';
-import CalendarModule from './CalendarModule';
+import CalendarModule from '../../_lib/Calendar/CalendarModule';
 import classNames from 'classnames/bind';
 
 type IFillterCatData = {
