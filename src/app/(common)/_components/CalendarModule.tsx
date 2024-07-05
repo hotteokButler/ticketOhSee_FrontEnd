@@ -1,7 +1,20 @@
-import React from 'react'
+'use client';
+
+import React, { useState } from 'react';
+import Canlender from '@/app/_lib/Calendar/Canlender';
+import dayjs from 'dayjs';
+import 'dayjs/locale/ko';
+dayjs.locale('ko');
+
+
+type SelectDate = dayjs.Dayjs | [dayjs.Dayjs, dayjs.Dayjs] | null;
 
 export default function CalendarModule() {
-  return (
-    <div>CalendarModule</div>
-  )
+  const [selectDate, setSelectDate] = useState<SelectDate>(null);
+
+  const handleSelectDate = (selectDate: SelectDate): void => {
+    setSelectDate(selectDate);
+  };
+
+  return <Canlender handleSelectDate={handleSelectDate} />;
 }
