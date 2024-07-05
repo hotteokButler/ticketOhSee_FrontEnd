@@ -5,6 +5,8 @@ import useMonth from './hooks/useMonth';
 import CalendarDate from './CalendarDate';
 import dayjs from 'dayjs';
 import 'dayjs/locale/ko';
+import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+
 dayjs.locale('ko');
 
 export type SelectDate = dayjs.Dayjs | [dayjs.Dayjs, dayjs.Dayjs] | null;
@@ -23,19 +25,19 @@ export default function Canlender({ handleSelectDate }: CalendarProps) {
     <div className={sty.calendar_wrap}>
       <div className={sty.calendar_btn_wrap}>
         <button type='button' onClick={handleClickPrevMonth}>
+          <FaChevronLeft />
           이전
         </button>
         <button type='button' onClick={handleClickNextMonth}>
           다음
+          <FaChevronRight />
         </button>
       </div>
       <h5 className={sty.calendar_tit}>{currentMonth}</h5>
       <div className={sty.calendar_date_wrap}>
-        <div className={sty.calendar_date_tag}>
-          {Object.values(['일', '월', '화', '수', '목', '금', '토']).map((day) => (
-            <span key={day}>{day.charAt(0)}</span>
-          ))}
-        </div>
+        {Object.values(['일', '월', '화', '수', '목', '금', '토']).map((day) => (
+          <span key={day} className={sty.calendar_week_tag}><button type="button">{day.charAt(0)}</button></span>
+        ))}
         {currentMonthDays.map((day, i) =>
           day ? (
             <CalendarDate key={i} date={day} selectDate={selectDate} handleClickDate={handleClickDate(day)} />

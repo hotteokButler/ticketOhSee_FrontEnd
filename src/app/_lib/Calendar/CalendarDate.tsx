@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import sty from './calendar.module.css';
 import classNames from 'classnames/bind';

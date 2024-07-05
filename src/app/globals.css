@@ -31,6 +31,8 @@ body[data-theme='light_mode'] {
   --footer-border: #d2c8e266;
   --search-sub:#555;
   --search-help:#999;
+  --date-range: #ffb3b8;
+  --date-range-bg: #e1cdf863;
 }
 
 * {
