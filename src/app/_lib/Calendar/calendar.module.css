@@ -144,3 +144,10 @@
   color: var(--font-help);
   border-color: transparent !important;
 }
+
+.calendar_date_wrap button.no_date,
+.calendar_date_wrap button.no_date:hover {
+  border: unset;
+  background: transparent;
+  cursor: default;
+}

@@ -42,8 +42,8 @@ export default function Canlender({ handleSelectDate }: CalendarProps) {
           day ? (
             <CalendarDate key={i} date={day} selectDate={selectDate} handleClickDate={handleClickDate(day)} />
           ) : (
-            <span key={i} className={sty.no_date}>
-              <button type='button'>&nbsp;</button>
+            <span key={i} >
+              <button type='button' className={sty.no_date}>&nbsp;</button>
             </span>
           )
         )}
