@@ -7,12 +7,17 @@
   --logo-text-gradient: linear-gradient(#ffcdf0 10%, #9acbff 100%);
   --backgound: #fff;
   --font-color: #232323;
+  --font-help: #b2b2b2;
   --error-color: #ff5436;
   --md-xxl-dvw : 1400px;
   --md-xl-dvw : 1200px;
   --md-lg-dvw : 992px;
   --md-md-dvw : 768px;
   --md-sm-dvw : 576px;
+  --noimage-bg : #eee;
+  --noimage-text: #9d9d9d;
+  --like-bg : #ff6a6a;
+  --star-bg :#ffcb2f;
 }
 
 body[data-theme='light_mode'] {
@@ -25,7 +30,6 @@ body[data-theme='light_mode'] {
   --toggle-button-color: #efefef;
   --sm-button-color: #dee8f3;
   --sm-button-hov-color: #8097b0;
-  --font-help: #b2b2b2;
   --footer-bg: #525a7f;
   --footer-font: #c6bfd9;
   --footer-border: #d2c8e266;
