@@ -25,7 +25,7 @@ export default function TicketList({
           {is_liked ? <FaHeart /> : <FaRegHeart />}
         </h5>
         <p className={sty.ticket_place}>{place}</p>
-        <p className={sty.ticket_period}>{`${dayjs(period_start).format('YYYY\/MM\/DD')} ~ ${dayjs(period_end).format('YYYY년\/MM\/DD')}`}</p>
+        <p className={sty.ticket_period}>{`${dayjs(period_start).format('YYYY\/MM\/DD')} ~ ${dayjs(period_end).format('YYYY\/MM\/DD')}`}</p>
         <p className={sty.ticket_review}>
           <FaStar />
           <span>&#40;{star}&#41;</span>
