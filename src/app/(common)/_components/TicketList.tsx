@@ -12,11 +12,11 @@ type ITicketList = {
 };
 
 export default function TicketList({
-  listData: { title, place, period_start, ticketImgUrl, is_liked, period_end, star, review },
+  listData: { id,title, place, period_start, ticketImgUrl, is_liked, period_end, star, review },
 }: ITicketList) {
   return (
     <div className={sty.ticket_wrap}>
-      <Link href='#' scroll={false}>
+      <Link href={`/ticket/${id}`} scroll={false}>
         <div className={sty.ticket_img}>
           {ticketImgUrl ?  <img src={ticketImgUrl} alt={title} /> : <NoImage/>}
         </div>
