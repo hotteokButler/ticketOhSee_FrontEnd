@@ -10,6 +10,7 @@ export default function Header() {
       <div  className={sty.header}>
         <Logo />
         <SearchCon />
+        <HeaderTabs/>
       </div>
     </header>
   );
