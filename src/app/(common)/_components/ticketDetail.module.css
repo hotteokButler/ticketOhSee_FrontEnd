@@ -6,6 +6,36 @@
   max-width: 100%;
 }
 
+.ticket_detail_main {
+  display: flex;
+  align-items: stretch;
+  max-width: 1240px;
+  margin: 0 auto;
+  gap: 15px;
+}
 .ticket_detail_con {
-  
+  flex: 1;
+}
+
+.ticket_tag_area {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 25px;
+}
+.ticket_tag_area  button {
+  border-radius: 2px;
+  padding: 6px 10px;
+  border: 1px solid var(--sm-button-hov-color);
+  color: var(--sm-button-hov-color);
+  font-size: 0.75rem;
+  min-width: 65px;
+  display: inline-block;
+  margin: 0 6px 0 0;
+}
+
+.ticket_reserv_date {
+  width: 40%;
+  max-width: 350px;
+  margin-right: 20px;
 }
