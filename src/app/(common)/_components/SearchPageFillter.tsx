@@ -93,7 +93,7 @@ export default function SearchPageFillter() {
                 <div className={sty.search_input_con}  key={id} >
                   <h5>{title}</h5>
                   <div className={sty.search_calender} data-wrap={ariaId}>
-                    <CalendarModule />
+                    <CalendarModule getTimeRange={null}/>
                   </div>
                 </div>
               );

@@ -45,8 +45,8 @@ export default function CalendarDate({ className, date, selectDate, handleClickD
 
   // 하루씩 날짜 더하고 빼야함
   const isBeforeTimeRange =
-    timeRange === null ? true : date.isBefore(dayjs(timeRange?.s_time).subtract(1, 'day'), 'day');
-  const isAfterTimeRange = timeRange === null ? true : date.isAfter(dayjs(timeRange?.f_time).add(1, 'day'), 'day');
+    timeRange === null ? false : date.isBefore(dayjs(timeRange?.s_time).subtract(1, 'day'), 'day');
+  const isAfterTimeRange = timeRange === null ? false : date.isAfter(dayjs(timeRange?.f_time).add(1, 'day'), 'day');
 
 
   return (
