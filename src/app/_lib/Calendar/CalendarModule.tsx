@@ -1,6 +1,4 @@
-'use client';
-
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Canlender from './Canlender';
 import dayjs from 'dayjs';
 import 'dayjs/locale/ko';
@@ -11,15 +9,13 @@ type SelectDate = dayjs.Dayjs | [dayjs.Dayjs, dayjs.Dayjs] | null;
 
 interface IProp {
   getTimeRange: ITimeRange;
+  setOtherModuleState?: (selectDate: SelectDate) => void;
 }
 
-export default function CalendarModule({ getTimeRange }: IProp) {
-  const [selectDate, setSelectDate] = useState<SelectDate>(null);
-  const [timeRange, setTimeRange] = useState<ITimeRange>(null);
+export default function CalendarModule({ getTimeRange, setOtherModuleState }: IProp) {
 
   const handleSelectDate = (selectDate: SelectDate): void => {
-    setSelectDate(selectDate);
-    console.log(selectDate);
+    setOtherModuleState && setOtherModuleState(selectDate);
   };
 
   return <Canlender handleSelectDate={handleSelectDate} timeRange={getTimeRange} />;

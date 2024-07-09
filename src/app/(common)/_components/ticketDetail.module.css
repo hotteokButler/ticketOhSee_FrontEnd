@@ -24,7 +24,7 @@
   justify-content: flex-start;
   margin-bottom: 25px;
 }
-.ticket_tag_area  button {
+.ticket_tag_area button {
   border-radius: 2px;
   padding: 6px 10px;
   border: 1px solid var(--sm-button-hov-color);
@@ -34,9 +34,49 @@
   display: inline-block;
   margin: 0 6px 0 0;
 }
-
-.ticket_reserv_date {
+.ticket_reserv_date_wrap {
+  position: relative;
   width: 40%;
   max-width: 350px;
-  margin-right: 20px;
+  min-height: 100dvh;
+}
+
+.ticket_reserv_date_sticky {
+  position: sticky;
+  top: 90px;
+  width: 100%;
+}
+.ticket_reserv_date_con {
+  padding: 10px 15px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+}
+.ticket_reserv_date_con h5 {
+  padding: 10px 0;
+  font-weight: 700;
+}
+.ticket_reserv_btn {
+  display: block;
+  width: 100%;
+  margin: 15px 0;
+  border: 2px solid var(--primary-color);
+  border-radius: 4px;
+  padding: 15px 10px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  background: var(--primary-color);
+  color: var(--white-color);
+  transition: 0.2s;
+}
+.ticket_reserv_btn:hover {
+  opacity: 0.7;
+}
+.ticket_reserv_btn:disabled,
+.ticket_reserv_btn:disabled:hover {
+  color: var(--white-color);
+  background: var(--border-color);
+  border-color: var(--border-color) !important;
+  pointer-events: none;
+  cursor: default;
 }

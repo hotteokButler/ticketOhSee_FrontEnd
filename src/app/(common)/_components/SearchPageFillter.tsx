@@ -1,9 +1,11 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import sty from './searchPage.module.css';
 import CalendarModule from '../../_lib/Calendar/CalendarModule';
 import classNames from 'classnames/bind';
+import dayjs from 'dayjs';
+
 
 type IFillterCatData = {
   id: number,
@@ -13,9 +15,16 @@ type IFillterCatData = {
   FillterBtns: string[] | []
 };
 
+
+type ISelectDate = dayjs.Dayjs | [dayjs.Dayjs, dayjs.Dayjs] | null;
+
 const cx = classNames.bind(sty);
 
 export default function SearchPageFillter() {
+
+  const [selectedDate, setSelectedDate] = useState<ISelectDate>(null);
+
+  console.log(selectedDate);
   const fillterCatData: IFillterCatData[] = [
     {
       id: 1,
@@ -62,6 +71,8 @@ export default function SearchPageFillter() {
     },
   ];
 
+
+
   return (
     <aside className={sty.search_fillter_wrap}>
       <div className={sty.search_fillter_con}>
@@ -93,7 +104,10 @@ export default function SearchPageFillter() {
                 <div className={sty.search_input_con}  key={id} >
                   <h5>{title}</h5>
                   <div className={sty.search_calender} data-wrap={ariaId}>
-                    <CalendarModule getTimeRange={null}/>
+                    <CalendarModule
+                    getTimeRange={null} 
+                    setOtherModuleState={setSelectedDate}
+                    />
                   </div>
                 </div>
               );
