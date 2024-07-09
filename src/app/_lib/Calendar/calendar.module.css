@@ -151,3 +151,13 @@
   background: transparent;
   cursor: default;
 }
+
+/* date block */
+.calendar_date_wrap button.is_after_time_range,
+.calendar_date_wrap button.is_after_time_range:hover,
+.calendar_date_wrap button.is_before_time_range,
+.calendar_date_wrap button.is_before_time_range:hover {
+  color: var(--font-help);
+  border-color: transparent !important;
+  pointer-events: none;
+}

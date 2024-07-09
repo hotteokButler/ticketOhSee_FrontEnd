@@ -66,7 +66,7 @@ export default function Canlender({ handleSelectDate, timeRange }: CalendarProps
         ))}
         {currentMonthDays.map((day, i) =>
           day ? (
-            <CalendarDate key={i} date={day} selectDate={selectDate} handleClickDate={ handleClickDate(day,timeRange)} timeRange={timeRange}/>
+            <CalendarDate key={i} date={day} selectDate={selectDate} handleClickDate={ () => handleClickDate(day,timeRange)} timeRange={timeRange}/>
           ) : (
             <span key={i}>
               <button type='button' className={sty.no_date}>

@@ -1,11 +1,12 @@
 'use client';
 
-import React from 'react';
+import React, { useRef } from 'react';
 import sty from './calendar.module.css';
 import classNames from 'classnames/bind';
 import dayjs from 'dayjs';
 import 'dayjs/locale/ko';
-import {ITimeRange} from './hooks/useCalander';
+import { ITimeRange } from './hooks/useCalander';
+
 dayjs.locale('ko');
 
 const cx = classNames.bind(sty);
@@ -42,6 +43,12 @@ export default function CalendarDate({ className, date, selectDate, handleClickD
       ? date.isAfter(selectDate[0], 'day') && date.isBefore(selectDate[1], 'day')
       : false;
 
+  // 하루씩 날짜 더하고 빼야함
+  const isBeforeTimeRange =
+    timeRange === null ? true : date.isBefore(dayjs(timeRange?.s_time).subtract(1, 'day'), 'day');
+  const isAfterTimeRange = timeRange === null ? true : date.isAfter(dayjs(timeRange?.f_time).add(1, 'day'), 'day');
+
+
   return (
     <span>
       <button
@@ -53,6 +60,8 @@ export default function CalendarDate({ className, date, selectDate, handleClickD
           is_end_day: isEndDay,
           is_select_day: isSelectDate,
           is_between_select_day: isBetweenSelectDay,
+          is_before_time_range: isBeforeTimeRange,
+          is_after_time_range: isAfterTimeRange,
         })}
         onClick={handleClickDate}
       >

@@ -46,57 +46,58 @@ export default function useCalendar({ handleSelectDate }: useCalendarProps) {
     setDaysOfMonth(date_mapper.date.dateOfMonths(date_mapper.date.nextMonthFirstDay(daysOfMonth[0])));
   };
 
-  const handleClickDate = (date: dayjs.Dayjs, timeRange: ITimeRange) => () => {
-    if (selectDate) {
-      // 이미 선택한 날짜가 있을 때
-      if (Array.isArray(selectDate)) {
-        if (selectDate.length === 2) {
-          // 선택했던 날짜가 구간 선택 일 때
-          if (date.isSame(selectDate[0]) || date.isSame(selectDate[1])) {
-            // 새롭게 선택한 날짜가 선택했던 날짜와 같을 때
-            if (date.isSame(selectDate[0])) {
-              // 새롭게 선택한 날짜가 선택했던 날짜의 첫번째와 같으면 첫번째 날짜 선택 취소
-              setSelectDate(selectDate[1]);
-            }
+  const handleClickDate =
+    (date: dayjs.Dayjs, timeRange: ITimeRange ) => {
+      if (selectDate) {
+        // 이미 선택한 날짜가 있을 때
+        if (Array.isArray(selectDate)) {
+          if (selectDate.length === 2) {
+            // 선택했던 날짜가 구간 선택 일 때
+            if (date.isSame(selectDate[0]) || date.isSame(selectDate[1])) {
+              // 새롭게 선택한 날짜가 선택했던 날짜와 같을 때
+              if (date.isSame(selectDate[0])) {
+                // 새롭게 선택한 날짜가 선택했던 날짜의 첫번째와 같으면 첫번째 날짜 선택 취소
+                setSelectDate(selectDate[1]);
+              }
 
-            if (date.isSame(selectDate[1])) {
-              // 새롭게 선택한 날짜가 선택했던 날짜의 두번째와 같으면 두번째 날짜 선택 취소
-              setSelectDate(selectDate[0]);
+              if (date.isSame(selectDate[1])) {
+                // 새롭게 선택한 날짜가 선택했던 날짜의 두번째와 같으면 두번째 날짜 선택 취소
+                setSelectDate(selectDate[0]);
+              }
+            } else {
+              // 새롭게 선택한 날짜가 선택했던 날짜와 같지 않을 때
+              // 현재 하루만 선택되어 있고 두번째로 선택한 날짜와 이미 선택되어 있는 날짜를
+              // sort를 해서 날짜 순서대로 배열을 정리 후 상태에 추가
+              const sortDates = [selectDate[0], date].sort((a, b) => (a.isAfter(b) ? 1 : -1)) as [
+                dayjs.Dayjs,
+                dayjs.Dayjs
+              ];
+
+              setSelectDate(sortDates);
             }
+          }
+        } else {
+          // 선택했던 날짜가 하루 일 때
+          if (date.isSame(selectDate)) {
+            // 선택했던 날짜와 선택한 날짜가 같을 때 선택 해제
+            setSelectDate(null);
           } else {
-            // 새롭게 선택한 날짜가 선택했던 날짜와 같지 않을 때
-            // 현재 하루만 선택되어 있고 두번째로 선택한 날짜와 이미 선택되어 있는 날짜를
-            // sort를 해서 날짜 순서대로 배열을 정리 후 상태에 추가
-            const sortDates = [selectDate[0], date].sort((a, b) => (a.isAfter(b) ? 1 : -1)) as [
-              dayjs.Dayjs,
-              dayjs.Dayjs
-            ];
+            // 선택했던 날짜와 선택한 날짜가 같지 않아서
+            // 날짜 구간선택 (정렬 로직은 위와 동일)
+            const sortDates = [selectDate, date].sort((a, b) => (a.isAfter(b) ? 1 : -1)) as [dayjs.Dayjs, dayjs.Dayjs];
 
             setSelectDate(sortDates);
           }
         }
-      } else {
-        // 선택했던 날짜가 하루 일 때
-        if (date.isSame(selectDate)) {
-          // 선택했던 날짜와 선택한 날짜가 같을 때 선택 해제
-          setSelectDate(null);
-        } else {
-          // 선택했던 날짜와 선택한 날짜가 같지 않아서
-          // 날짜 구간선택 (정렬 로직은 위와 동일)
-          const sortDates = [selectDate, date].sort((a, b) => (a.isAfter(b) ? 1 : -1)) as [dayjs.Dayjs, dayjs.Dayjs];
 
-          setSelectDate(sortDates);
+        if (!Array.isArray(selectDate) && timeRange) {
+          setSelectDate((p) => date);
         }
-      }
-
-      if (!Array.isArray(selectDate) && timeRange) {
+      } else {
+        // 이미 선택한 날짜가 없을 때
         setSelectDate((p) => date);
       }
-    } else {
-      // 이미 선택한 날짜가 없을 때
-      setSelectDate((p) => date);
-    }
-  };
+    };
 
   useEffect(() => {
     // Calendar 내부에서 사용하는 상태 값을
