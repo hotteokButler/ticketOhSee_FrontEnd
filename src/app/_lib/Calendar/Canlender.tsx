@@ -19,14 +19,13 @@ export type SelectDate = dayjs.Dayjs | [dayjs.Dayjs, dayjs.Dayjs] | null;
 
 
 type CalendarProps = {
-  handleSelectDate: (selectDate: SelectDate , timeRange :ITimeRange) => void;
+  handleSelectDate: (selectDate: SelectDate) => void;
   timeRange: ITimeRange;
 };
 
 export default function Canlender({ handleSelectDate, timeRange }: CalendarProps) {
   const { selectDate, daysOfMonth, handleClickPrevMonth, handleClickNextMonth, handleClickDate } = useCalendar({
-    handleSelectDate,
-    timeRange
+    handleSelectDate
   });
 
 

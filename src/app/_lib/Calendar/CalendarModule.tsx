@@ -15,7 +15,7 @@ interface IProp {
 
 export default function CalendarModule({ getTimeRange }: IProp) {
   const [selectDate, setSelectDate] = useState<SelectDate>(null);
-  const [timeRange, setTimeRange] = useState<IProp | null>(null);
+  const [timeRange, setTimeRange] = useState<ITimeRange>(null);
 
   const handleSelectDate = (selectDate: SelectDate): void => {
     setSelectDate(selectDate);

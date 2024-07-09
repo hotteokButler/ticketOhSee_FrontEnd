@@ -8,8 +8,7 @@ export type SelectDate = dayjs.Dayjs | [dayjs.Dayjs, dayjs.Dayjs] | null;
 export type ITimeRange = { s_time: string | Date; f_time: string | Date } | null;
 
 interface useCalendarProps {
-  handleSelectDate: (selectDate: SelectDate ,timeRange : ITimeRange) => void;
-  timeRange : ITimeRange;
+  handleSelectDate: (selectDate: SelectDate) => void;
 }
 
 const date_mapper = {
@@ -35,7 +34,7 @@ const date_mapper = {
   },
 };
 
-export default function useCalendar({ handleSelectDate ,timeRange }: useCalendarProps) {
+export default function useCalendar({ handleSelectDate }: useCalendarProps) {
   const [selectDate, setSelectDate] = useState<SelectDate>(null);
   const [daysOfMonth, setDaysOfMonth] = useState(date_mapper.date.dateOfMonths(dayjs()));
 
@@ -51,7 +50,7 @@ export default function useCalendar({ handleSelectDate ,timeRange }: useCalendar
     if (selectDate) {
       // 이미 선택한 날짜가 있을 때
       if (Array.isArray(selectDate)) {
-        if (selectDate.length === 2 && !timeRange) {
+        if (selectDate.length === 2) {
           // 선택했던 날짜가 구간 선택 일 때
           if (date.isSame(selectDate[0]) || date.isSame(selectDate[1])) {
             // 새롭게 선택한 날짜가 선택했던 날짜와 같을 때
@@ -99,7 +98,7 @@ export default function useCalendar({ handleSelectDate ,timeRange }: useCalendar
     // Calendar 내부에서 사용하는 상태 값을
     // Calendar 외부에서 사용하는 상태 값으로 전달하는 핸들러를 전달받아
     // 날짜를 선택할 때 마다 상태 값을 업데이트 하는 useEffect
-    handleSelectDate(selectDate , timeRange);
+    handleSelectDate(selectDate);
   }, [selectDate]);
 
   return {
