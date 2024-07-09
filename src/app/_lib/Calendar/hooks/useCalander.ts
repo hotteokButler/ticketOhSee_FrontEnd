@@ -46,7 +46,7 @@ export default function useCalendar({ handleSelectDate }: useCalendarProps) {
     setDaysOfMonth(date_mapper.date.dateOfMonths(date_mapper.date.nextMonthFirstDay(daysOfMonth[0])));
   };
 
-  const handleClickDate = (date: dayjs.Dayjs , timeRange : ITimeRange) => () => {
+  const handleClickDate = (date: dayjs.Dayjs, timeRange: ITimeRange) => () => {
     if (selectDate) {
       // 이미 선택한 날짜가 있을 때
       if (Array.isArray(selectDate)) {
@@ -88,9 +88,13 @@ export default function useCalendar({ handleSelectDate }: useCalendarProps) {
           setSelectDate(sortDates);
         }
       }
+
+      if (!Array.isArray(selectDate) && timeRange) {
+        setSelectDate((p) => date);
+      }
     } else {
       // 이미 선택한 날짜가 없을 때
-      setSelectDate(date);
+      setSelectDate((p) => date);
     }
   };
 
