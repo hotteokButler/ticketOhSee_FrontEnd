@@ -80,3 +80,19 @@
   pointer-events: none;
   cursor: default;
 }
+
+/* star_rating */
+.star_rating {
+  display: flex;
+  align-items: center;
+}
+.star_rating svg {
+  fill: var(--star-bg);
+  color: var(--star-bg);
+}
+.str_rating_txt {
+  margin: 0 2px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--star-rate-txt);
+}
