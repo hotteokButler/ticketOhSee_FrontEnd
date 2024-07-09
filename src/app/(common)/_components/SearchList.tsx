@@ -15,8 +15,8 @@ export type ITicketData = {
   title: string;
   place: string;
   ticketImgUrl?: string;
-  period_start: string | Date;
-  period_end: string | Date;
+  s_time: string | Date;
+  f_time: string | Date;
   is_liked?: boolean;
   star: number;
   review: number;
@@ -38,8 +38,8 @@ export default function SearchList() {
         title: '타이틀',
         place: '공연장소',
         is_liked: true,
-        period_start: new Date(),
-        period_end: new Date(),
+        s_time: new Date(),
+        f_time: new Date(),
         star: 9.8,
         review: 980,
       },
@@ -47,8 +47,8 @@ export default function SearchList() {
         id: 2,
         title: '타이틀',
         place: '공연장소',
-        period_start: new Date(),
-        period_end: new Date(),
+        s_time: new Date(),
+        f_time: new Date(),
         star: 9.8,
         review: 980,
       },
@@ -56,8 +56,8 @@ export default function SearchList() {
         id: 3,
         title: '타이틀',
         place: '공연장소',
-        period_start: new Date(),
-        period_end: new Date(),
+        s_time: new Date(),
+        f_time: new Date(),
         star: 9.8,
         review: 980,
       },
@@ -65,8 +65,8 @@ export default function SearchList() {
         id: 4,
         title: '타이틀',
         place: '공연장소',
-        period_start: new Date(),
-        period_end: new Date(),
+        s_time: new Date(),
+        f_time: new Date(),
         star: 9.8,
         review: 980,
       },

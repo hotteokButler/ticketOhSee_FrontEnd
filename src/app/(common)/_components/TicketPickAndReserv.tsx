@@ -6,7 +6,7 @@ import CalendarModule from '@/app/_lib/Calendar/CalendarModule';
 export default function TicketPickAndReserv() {
   return (
     <div className={sty.ticket_reserv_date}>
-      <CalendarModule/>
+      <CalendarModule s_time='2024-06-20' f_time='2024-08-27'/>
     </div>
   )
 }

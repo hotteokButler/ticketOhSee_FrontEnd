@@ -12,7 +12,7 @@ type ITicketList = {
 };
 
 export default function TicketList({
-  listData: { id,title, place, period_start, ticketImgUrl, is_liked, period_end, star, review },
+  listData: { id,title, place, s_time, ticketImgUrl, is_liked, f_time, star, review },
 }: ITicketList) {
   return (
     <div className={sty.ticket_wrap}>
@@ -25,7 +25,7 @@ export default function TicketList({
           {is_liked ? <FaHeart /> : <FaRegHeart />}
         </h5>
         <p className={sty.ticket_place}>{place}</p>
-        <p className={sty.ticket_period}>{`${dayjs(period_start).format('YYYY\/MM\/DD')} ~ ${dayjs(period_end).format('YYYY\/MM\/DD')}`}</p>
+        <p className={sty.ticket_period}>{`${dayjs(s_time).format('YYYY\/MM\/DD')} ~ ${dayjs(f_time).format('YYYY\/MM\/DD')}`}</p>
         <p className={sty.ticket_review}>
           <FaStar />
           <span>&#40;{star}&#41;</span>

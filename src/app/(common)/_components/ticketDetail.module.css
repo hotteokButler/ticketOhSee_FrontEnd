@@ -9,8 +9,8 @@
 .ticket_detail_main {
   display: flex;
   align-items: stretch;
-  max-width: 1240px;
-  margin: 0 auto;
+  max-width: 1200px;
+  margin: 30px auto;
   gap: 15px;
 }
 
