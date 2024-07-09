@@ -5,15 +5,23 @@ import sty from './ticketDetail.module.css';
 import CalendarModule from '@/app/_lib/Calendar/CalendarModule';
 import dayjs from 'dayjs';
 import 'dayjs/locale/ko';
+import { SelectDate, SelectDateProp } from '@/app/_lib/Calendar/hooks/useCalander';
 dayjs.locale('ko');
 
-type ISelectDate = dayjs.Dayjs | [dayjs.Dayjs, dayjs.Dayjs] | null;
+
+type ISelectDate = SelectDateProp | SelectDateProp[] | SelectDate;
+
 
 export default function TicketPickAndReserv() {
-  const [selectDate, setSelectDate] = useState<ISelectDate>(null);
+  const [selectDate, setSelectDate] = useState<ISelectDate> (null);
 
   const handleClickBtn: React.MouseEventHandler<HTMLButtonElement> = (e) => {
-    console.log(selectDate);
+    if(Array.isArray(selectDate)) {
+      alert('올바르지않은 형식입니다');
+    } else {
+      const {$d} = selectDate as SelectDateProp;
+      selectDate && console.log(dayjs($d).format('YYYY-MM-DD'));
+    }
   };
 
   return (

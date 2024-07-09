@@ -3,6 +3,21 @@
 import { useState, useEffect } from 'react';
 import dayjs from 'dayjs';
 
+export type SelectDateProp = {
+  $D: number | string;
+  $H: number | string;
+  $L: string;
+  $M: number | string;
+  $W: number | string;
+  $d: string;
+  $m: number;
+  $ms: number | string;
+  $s: number | string;
+  $x:string;
+  $y: number | string;
+  $isDayjsObject: boolean | string;
+};
+
 export type SelectDate = dayjs.Dayjs | [dayjs.Dayjs, dayjs.Dayjs] | null;
 
 export type ITimeRange = { s_time: string | Date; f_time: string | Date } | null;
