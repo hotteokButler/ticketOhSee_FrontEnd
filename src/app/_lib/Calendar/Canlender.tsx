@@ -8,6 +8,8 @@ import 'dayjs/locale/ko';
 import isSameOrAfter from 'dayjs/plugin/isSameOrAfter';
 import isSameOrBefore from 'dayjs/plugin/isSameOrBefore';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import {ITimeRange} from './hooks/useCalander';
+
 
 dayjs.locale('ko');
 dayjs.extend(isSameOrAfter);
@@ -15,28 +17,32 @@ dayjs.extend(isSameOrBefore);
 
 export type SelectDate = dayjs.Dayjs | [dayjs.Dayjs, dayjs.Dayjs] | null;
 
+
 type CalendarProps = {
-  handleSelectDate: (selectDate: SelectDate) => void;
-  timeRange?: { s_time?: string | Date; f_time?: string | Date } | null;
+  handleSelectDate: (selectDate: SelectDate , timeRange :ITimeRange) => void;
+  timeRange: ITimeRange;
 };
 
 export default function Canlender({ handleSelectDate, timeRange }: CalendarProps) {
   const { selectDate, daysOfMonth, handleClickPrevMonth, handleClickNextMonth, handleClickDate } = useCalendar({
     handleSelectDate,
+    timeRange
   });
+
+
   const { currentMonth, currentMonthDays } = useMonth({ daysOfMonth });
 
-  // timeRange 지정 날짜가 있을 경우 그 이전 이후 달로 넘어가지 않게 고정
+  // timeRange 지정 날짜가 있을 경우 그 이전 이후 달로 넘어가지 않게 분기처리
   const checkIsBefore = dayjs(daysOfMonth[0]).isSameOrBefore(dayjs(timeRange?.s_time),'month');
   const checkIsAfter = dayjs(daysOfMonth[0]).isSameOrAfter(dayjs(timeRange?.f_time),'month');
 
   const handleCheckPrevEvent = () => {
-    if (checkIsBefore) return;
+    if (checkIsBefore && timeRange) return;
     handleClickPrevMonth();
   };
 
   const handleCheckNextEvent = () => {
-    if (checkIsAfter) return;
+    if (checkIsAfter && timeRange) return;
     handleClickNextMonth();
   };
 
@@ -61,7 +67,7 @@ export default function Canlender({ handleSelectDate, timeRange }: CalendarProps
         ))}
         {currentMonthDays.map((day, i) =>
           day ? (
-            <CalendarDate key={i} date={day} selectDate={selectDate} handleClickDate={handleClickDate(day)} />
+            <CalendarDate key={i} date={day} selectDate={selectDate} handleClickDate={ handleClickDate(day,timeRange)} timeRange={timeRange}/>
           ) : (
             <span key={i}>
               <button type='button' className={sty.no_date}>

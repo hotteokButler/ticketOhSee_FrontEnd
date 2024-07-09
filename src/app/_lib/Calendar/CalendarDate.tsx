@@ -5,6 +5,7 @@ import sty from './calendar.module.css';
 import classNames from 'classnames/bind';
 import dayjs from 'dayjs';
 import 'dayjs/locale/ko';
+import {ITimeRange} from './hooks/useCalander';
 dayjs.locale('ko');
 
 const cx = classNames.bind(sty);
@@ -16,10 +17,12 @@ interface CalendarDateProps {
   date: dayjs.Dayjs;
   selectDate: SelectDate;
   handleClickDate: () => void;
+  timeRange?: ITimeRange;
 }
 
-export default function CalendarDate({ className, date, selectDate, handleClickDate }: CalendarDateProps) {
+export default function CalendarDate({ className, date, selectDate, handleClickDate, timeRange }: CalendarDateProps) {
   const isToday = date.isSame(dayjs(), 'day');
+
   const isStartDay =
     selectDate === null ? false : Array.isArray(selectDate) ? selectDate[0].isSame(date, 'day') : false;
 
