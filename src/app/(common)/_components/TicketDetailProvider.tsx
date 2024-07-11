@@ -2,7 +2,8 @@
 import React, { createContext, useState } from 'react';
 
 
-export type TicketDetailContextVal = 'ticket_info' | 'ticket_review';
+// export type TicketDetailContextVal = 'ticket_info' | 'ticket_review';
+export type TicketDetailContextVal = 'ticket_info';
 
 export const TicketDetailContext = createContext({
   detail: 'ticket_info',

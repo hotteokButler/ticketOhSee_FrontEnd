@@ -13,6 +13,7 @@ export default function TicketDetail({ ticket_id , children}: { ticket_id: strin
   const [isLike, setIsLike] = useState(false);
   const [isHaveIntermission, setIntermission] = useState('20분');
   const [fakerImg, setFakerImg] = useState<string | null>(null);
+  
   const handleIsLike: MouseEventHandler<HTMLSpanElement> = (e) => {
     e.preventDefault();
     setIsLike((p) => !p);
@@ -59,7 +60,7 @@ export default function TicketDetail({ ticket_id , children}: { ticket_id: strin
             <span>
               180분
               {isHaveIntermission && (
-                <span className={sty.ticket_intermission}>&#40;인터미션 {isHaveIntermission}분 포함&#41;</span>
+                <span className={sty.ticket_intermission}>&#40;인터미션 {isHaveIntermission} 포함&#41;</span>
               )}
             </span>
           </li>

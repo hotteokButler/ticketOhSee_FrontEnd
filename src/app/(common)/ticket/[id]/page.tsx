@@ -7,6 +7,9 @@ import TicketDetailProvider from '../../_components/TicketDetailProvider';
 import TicketPickAndReserv from '../../_components/TicketPickAndReserv';
 
 export default function TicketPage({ params }: { params: { id: string } }) {
+
+  // ticket_id로 data 불러와 param 넘길 예정 :
+
   return (
     <>
       <div className={sty.ticket_detail_wrapper}>

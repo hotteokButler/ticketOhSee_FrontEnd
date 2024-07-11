@@ -1,0 +1,43 @@
+@charset 'utf-8';
+
+.ticket_review_list_tit {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 0 30px;
+  font-size: 1.7rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  word-spacing: -0.05em;
+}
+.ticket_review_rating {
+  display: flex;
+  align-items: center;
+}
+.ticket_review_rating h3 {
+  margin-right: 20px;
+}
+ .ticket_review_rating svg {
+  width: 30px;
+  height: 30px;
+}
+.ticket_review_rating span {
+  font-size: 1.5rem;
+}
+.ticket_review_rating > span {
+  margin: 0 5px;
+}
+.ticket_review_list_tit button {
+  border-radius: 2px;
+  border: 1px solid var(--sm-button-hov-color);
+  font-size: 1rem;
+  padding: 9px 30px;
+  font-weight: 600;
+  background: var(--white-color);
+  transition: 0.2s;
+}
+.ticket_review_list_tit button:hover  {
+  background :var(--primary-color);
+  border-color :var(--primary-color);
+  color : var(--white-color);
+}

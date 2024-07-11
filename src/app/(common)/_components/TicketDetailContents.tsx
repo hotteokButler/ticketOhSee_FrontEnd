@@ -26,11 +26,13 @@ export default function TicketDetailContents() {
   <article className={sty.ticket_main_info_wrap} aria-label={detail}>
     <menu className={sty.ticket_tab}>
       <button type="button" onClick={handleTabClick} name="ticket_info" className={cx({'on': detail === 'ticket_info'})}>공연정보</button>
-      <button type="button" onClick={handleTabClick} name="ticket_review" className={cx({'on': detail === 'ticket_review'})}>관람후기&#40;999+&#41;</button>
+      {/* ticket_review 추후 확장예정 */}
+      {/* <button type="button" onClick={handleTabClick} name="ticket_review" className={cx({'on': detail === 'ticket_review'})}>관람후기&#40;999+&#41;</button> */}
     </menu>
 
     {detail === 'ticket_info' && <div className={sty.ticket_main_info_detail}>공연상세</div>}
-    {detail === 'ticket_review' && <TicketReviewList/>}
+    {/* ticket_review 추후 확장예정 */}
+    {/* {detail === 'ticket_review' && <TicketReviewList/>} */}
   </article>
   );
 }
