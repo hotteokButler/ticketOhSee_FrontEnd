@@ -1,18 +1,20 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState} from 'react';
 import sty from './ticketDetail.module.css';
 import CalendarModule from '@/app/_lib/Calendar/CalendarModule';
 import dayjs from 'dayjs';
 import 'dayjs/locale/ko';
 import { SelectDate, SelectDateProp } from '@/app/_lib/Calendar/hooks/useCalander';
+import Link from 'next/link';
+
 dayjs.locale('ko');
 
 
 type ISelectDate = SelectDateProp | SelectDateProp[] | SelectDate;
 
 
-export default function TicketPickAndReserv() {
+export default function TicketPickAndReserv({ticket_id} : {ticket_id: string }) {
   const [selectDate, setSelectDate] = useState<ISelectDate> (null);
 
   const handleClickBtn: React.MouseEventHandler<HTMLButtonElement> = (e) => {
@@ -42,6 +44,7 @@ export default function TicketPickAndReserv() {
         >
           예매하기
         </button>
+        <Link href={`/ticket/${ticket_id}/buy`} > 예매하기</Link>
       </div>
     </div>
   );

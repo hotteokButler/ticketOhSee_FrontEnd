@@ -1,0 +1,11 @@
+@charset 'utf-8';
+
+.main_wrapper {
+  position: relative;
+  width: 100dvw;
+  max-width: 100%;
+  min-height: 100dvh;
+}
+.main_con {
+  width: 100%;
+}
