@@ -1,28 +1,29 @@
 'use client';
 
-import React, { useState} from 'react';
+import React, { useState } from 'react';
 import sty from './ticketDetail.module.css';
 import CalendarModule from '@/app/_lib/Calendar/CalendarModule';
 import dayjs from 'dayjs';
 import 'dayjs/locale/ko';
 import { SelectDate, SelectDateProp } from '@/app/_lib/Calendar/hooks/useCalander';
 import Link from 'next/link';
+import classNames from 'classnames/bind';
+
+const cx = classNames.bind(sty);
 
 dayjs.locale('ko');
 
+type ISelectDate = SelectDateProp | SelectDateProp[] | SelectDate | string | string[];
 
-type ISelectDate = SelectDateProp | SelectDateProp[] | SelectDate;
+export default function TicketPickAndReserv({ ticket_id }: { ticket_id: string }) {
+  const [selectDate, setSelectDate] = useState<ISelectDate>(null);
+  const [btnActive, setBtnActive] = useState(false);
 
-
-export default function TicketPickAndReserv({ticket_id} : {ticket_id: string }) {
-  const [selectDate, setSelectDate] = useState<ISelectDate> (null);
-
-  const handleClickBtn: React.MouseEventHandler<HTMLButtonElement> = (e) => {
-    if(Array.isArray(selectDate)) {
+  const handleClickBtn: React.MouseEventHandler<HTMLAnchorElement> = (e) => {
+    if (Array.isArray(selectDate)) {
       alert('올바르지않은 형식입니다');
     } else {
-      const {$d} = selectDate as SelectDateProp;
-      selectDate && console.log(dayjs($d).format('YYYY-MM-DD'));
+      setBtnActive((p) => !p);
     }
   };
 
@@ -36,15 +37,17 @@ export default function TicketPickAndReserv({ticket_id} : {ticket_id: string }) 
             setOtherModuleState={setSelectDate}
           />
         </div>
-        <button
-          type='button'
+
+        <Link
           onClick={handleClickBtn}
-          className={sty.ticket_reserv_btn}
-          disabled={selectDate ? false : true}
+          className={cx('ticket_reserv_btn', { ticket_reserv_btn_disable: !selectDate && !btnActive })}
+          href={{
+            pathname: `/ticket/${ticket_id}/buy`,
+            query: { date: String(selectDate) },
+          }}
         >
           예매하기
-        </button>
-        <Link href={`/ticket/${ticket_id}/buy`} > 예매하기</Link>
+        </Link>
       </div>
     </div>
   );

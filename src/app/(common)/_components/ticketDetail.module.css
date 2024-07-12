@@ -47,12 +47,13 @@
   background: var(--primary-color);
   color: var(--white-color);
   transition: 0.2s;
+  text-align: center;
 }
 .ticket_reserv_btn:hover {
   opacity: 0.7;
 }
-.ticket_reserv_btn:disabled,
-.ticket_reserv_btn:disabled:hover {
+.ticket_reserv_btn.ticket_reserv_btn_disable,
+.ticket_reserv_btn.ticket_reserv_btn_disable:hover {
   color: var(--white-color);
   background: var(--border-color);
   border-color: var(--border-color) !important;

@@ -15,7 +15,7 @@ type IFillterCatData = {
   FillterBtns: string[] | [];
 };
 
-type ISelectDate = SelectDateProp | SelectDateProp[] | SelectDate;
+type ISelectDate = SelectDateProp | SelectDateProp[] | SelectDate | string | string[];
 
 const cx = classNames.bind(sty);
 
