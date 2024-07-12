@@ -19,6 +19,7 @@
   --like-bg : #ff6a6a;
   --star-bg :#ffcb2f;
   --star-rate-txt: #444;
+  --modal-bg: rgba(0,0,0,0.75);
 }
 
 body[data-theme='light_mode'] {

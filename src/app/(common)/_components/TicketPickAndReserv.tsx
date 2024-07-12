@@ -43,8 +43,9 @@ export default function TicketPickAndReserv({ ticket_id }: { ticket_id: string }
           className={cx('ticket_reserv_btn', { ticket_reserv_btn_disable: !selectDate && !btnActive })}
           href={{
             pathname: `/ticket/${ticket_id}/buy`,
-            query: { date: String(selectDate) },
+            query: { date: String(selectDate)},
           }}
+          scroll={false}
         >
           예매하기
         </Link>

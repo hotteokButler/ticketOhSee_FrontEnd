@@ -1,1 +1,21 @@
 @charset 'utf-8';
+
+.ticket_modal_wrap {
+  position: fixed;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  width: 100dvw;
+  height:100dvh;
+  background: var(--modal-bg);
+  z-index : 99;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ticket_modal_con {
+  padding: 20px;
+  background: var(--white-color);
+  border-radius: 8px;
+}
