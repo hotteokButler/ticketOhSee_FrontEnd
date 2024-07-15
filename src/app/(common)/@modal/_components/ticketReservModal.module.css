@@ -2,14 +2,14 @@
 
 .ticket_modal_wrap {
   position: fixed;
-  top:0;
-  left:0;
-  right:0;
-  bottom:0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   width: 100dvw;
-  height:100dvh;
+  height: 100dvh;
   background: var(--modal-bg);
-  z-index : 99;
+  z-index: 99;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -19,14 +19,17 @@
   background: var(--white-color);
   border-radius: 8px;
   width: 90dvw;
+  height:95dvh;
   max-width: 1040px;
+  max-height: 600px;
+  overflow: auto;
 }
 .ticket_modal_top {
   padding: 0 0 15px;
   margin: 0 0 15px;
   font-size: 1.5rem;
   font-weight: 700;
-  border-bottom : 2px solid var(--border-color);
+  border-bottom: 2px solid var(--border-color);
 }
 .ticket_modal_top span {
   display: inline-block;
@@ -35,4 +38,174 @@
   font-weight: 500;
   font-size: 1.15rem;
   margin: 0 0 0 10px;
+}
+
+.ticket_modal_main {
+  display: flex;
+  gap: 20px;
+}
+.ticket_modal_aside {
+  width: 40%;
+  max-width: 350px;
+}
+.ticket_modal_aside_top {
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  padding: 20px 15px;
+}
+.ticket_modal_price_remain h5 {
+  margin: 0 0 20px;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+.ticket_modal_price_remain menu {
+}
+.ticket_seat_btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px 10px 10px 30px;
+  margin: 8px 0;
+  border-radius: 4px;
+  border: 1px solid var(--border-color);
+  background: var(--white-color);
+  transition: 0.2s;
+}
+.ticket_seat_btn::after {
+  content: '';
+  clear: both;
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+}
+.ticket_seat_btn.ticket_vip_seat::after {
+  background: var(--vip-seat);
+}
+.ticket_seat_btn.ticket_r_seat::after {
+  background: var(--r-seat);
+}
+.ticket_seat_btn.ticket_s_seat::after {
+  background: var(--s-seat);
+}
+.ticket_seat_btn.ticket_a_seat::after {
+  background: var(--a-seat);
+}
+.ticket_seat_btn.ticket_vip_seat:hover {
+  border-color: var(--vip-seat);
+}
+.ticket_seat_btn.ticket_r_seat:hover {
+  border-color: var(--r-seat);
+}
+.ticket_seat_btn.ticket_s_seat:hover {
+  border-color: var(--s-seat);
+}
+.ticket_seat_btn.ticket_a_seat:hover {
+  border-color: var(--a-seat);
+}
+
+.ticket_selected_btn {
+  border-width: 2px !important;
+}
+.ticket_selected_btn.ticket_vip_seat {
+  border-color: var(--vip-seat) !important;
+}
+.ticket_selected_btn.ticket_r_seat {
+  border-color: var(--r-seat) !important;
+}
+.ticket_selected_btn.ticket_s_seat {
+  border-color: var(--s-seat) !important;
+}
+.ticket_selected_btn.ticket_a_seat {
+  border-color: var(--a-seat) !important;
+}
+.ticket_seat_btn span {
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+.ticket_seat_btn .ticket_uppercase {
+  margin-right: 4px;
+}
+.ticket_seat_btn .ticket_remain {
+  color: var(--seat-remain);
+}
+.ticket_modal_selected {
+  padding: 10px 0;
+  margin: 20px 0 0;
+  border-top: 1px solid var(--border-color);
+}
+.ticket_selected_seat_notice {
+  margin: 20px 0 0;
+  text-align: right;
+  color: var(--seat-remain);
+  font-weight: 600;
+}
+
+.ticket_modal_aside_btm {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 10px 0;
+  text-align: center;
+}
+.ticket_modal_aside_btm > a {
+  border-radius: 4px;
+  border: 2px solid var(--primary-color);
+  background: var(--primary-color);
+  color: var(--white-color);
+  font-weight: 600;
+  padding: 15px 10px;
+  font-size: 1.1rem;
+}
+.ticket_modal_aside_btm > a:hover {
+  opacity:0.7;
+}
+.ticket_modal_aside_btm > a.disabled,
+.ticket_modal_aside_btm > a.disabled:hover
+{
+  color: var(--white-color);
+  background: var(--border-color);
+  border-color: var(--border-color) !important;
+  pointer-events: none;
+  cursor: default;
+  opacity:1;
+}
+.ticket_modal_aside_btm_btns {
+  width: 100%;
+  padding: 10px 0 5px;
+}
+.ticket_modal_aside_btm_btns button {
+  width: 49%;
+  border-radius: 4px;
+  border: 1px solid var(--font-help);
+  padding: 5px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  background: var(--white-color);
+  transition: 0.2s;
+}
+.ticket_modal_aside_btm_btns button:first-child {
+  margin-right: 2%;
+}
+.ticket_modal_aside_btm_btns button:hover {
+ background: var(--sm-button-color);
+}
+.seat_help_info {
+  text-align: right;
+  width: 100%;
+  transition: 0.2s;
+}
+.seat_help_info:hover {
+  opacity:0.7;
+}
+.seat_help_info svg{
+  width: 17px;
+  height: 17px;
+  vertical-align: text-bottom;
 }

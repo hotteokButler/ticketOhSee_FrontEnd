@@ -20,6 +20,11 @@
   --star-bg :#ffcb2f;
   --star-rate-txt: #444;
   --modal-bg: rgba(0,0,0,0.75);
+  --vip-seat :#834590;
+  --r-seat :#50b760;
+  --s-seat :#3398cf;
+  --a-seat :#e885c4;
+  --seat-remain: #ff7d7d;
 }
 
 body[data-theme='light_mode'] {

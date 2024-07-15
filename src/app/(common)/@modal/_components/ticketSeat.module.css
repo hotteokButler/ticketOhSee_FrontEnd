@@ -1,5 +1,10 @@
 @charset 'utf-8';
 
 .ticket_seat_wrap {
+  flex: 1;
   
+}
+.ticket_seat_wrap { 
+  /* 삭제 예정 */
+  background: var(--font-help);
 }

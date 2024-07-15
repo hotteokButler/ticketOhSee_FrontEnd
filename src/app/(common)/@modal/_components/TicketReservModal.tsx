@@ -5,16 +5,22 @@ import sty from './ticketReservModal.module.css';
 import { useRouter } from 'next/navigation';
 import TicketSeat from './TicketSeat';
 import Link from 'next/link';
+import { IoAlertCircleOutline } from "react-icons/io5";
 import classNames from 'classnames/bind';
 
 const cx = classNames.bind(sty);
 
-export type SelectedSeat = { seat_number: number; grade: number };
+export type SelectedSeat = { seat_number: number; grade: number | string; id:number; };
 export type SelectedSeatState = SelectedSeat[] | null;
 
 export default function TicketReservModal({ id, date }: { id: string; date?: string }) {
   const router = useRouter();
   const [selectedSeat, setSelectedSeat] = useState<SelectedSeatState>(null);
+
+  const resetSeat : React.MouseEventHandler<HTMLButtonElement> = ( e) => {
+    e.preventDefault();
+    setSelectedSeat(prev => null);
+  }
 
   useEffect(() => {
     if (date === undefined || date === '') {
@@ -22,26 +28,30 @@ export default function TicketReservModal({ id, date }: { id: string; date?: str
       router.replace(`/ticket/${id}`, { scroll: false });
       return;
     }
-  }, [date]);
+  }, [date ,selectedSeat]);
 
   const dommyPrice = [
     {
-      id: 'vip',
+      id: 1,
+      grade: 'vip',
       remain: 210,
       price: 180000,
     },
     {
-      id: 'r',
+      id: 2,
+      grade: 'r',
       remain: 249,
       price: 150000,
     },
     {
-      id: 's',
+      id: 3,
+      grade: 's',
       remain: 160,
       price: 120000,
     },
     {
-      id: 'a',
+      id:4,
+      grade: 'a',
       remain: 100,
       price: 90000,
     },
@@ -66,45 +76,52 @@ export default function TicketReservModal({ id, date }: { id: string; date?: str
               <div className={sty.ticket_modal_price_remain}>
                 <h5>좌석등급/잔여석</h5>
                 <menu type='toolbar'>
-                  {dommyPrice.map(({ id, remain, price }) => (
-                    <button type='button' key={id} className={sty.ticket_seat_btn}>
+                  {dommyPrice.map(({ id, grade, remain, price }) => (
+                    <button type='button' key={id} className={cx('ticket_seat_btn', { [`ticket_${grade}_seat`]: grade })}>
                       <span>
-                        <span className={sty.ticket_uppercase}>{id}석</span>
+                        <span className={sty.ticket_uppercase}>{grade.toUpperCase()}석</span>
                         <span className={sty.ticket_remain}>&#40;{remain}&#41;</span>
                       </span>
-                      <span className={sty.ticket_price}>{price}</span>
+                      <span>{Number(price).toLocaleString('ko-KR')}원</span>
                     </button>
                   ))}
                 </menu>
               </div>
               {/* 우선 ui구조만 먼저 */}
-              <div className={sty.ticket_modal_selected}>
-                <button type='button' className={sty.ticket_seat_btn}>
-                  <span>
-                    <span className={sty.ticket_uppercase}>A석</span>
-                  </span>
-                  <span className={sty.ticket_price}>1석</span>
-                </button>
-                {selectedSeat && 
-                  <p className={sty.ticket_selected_seat_notice}>
-                    총 {selectedSeat.length}석 선택되었습니다.
-                  </p>
-                  }
-              </div>
+              {selectedSeat && (
+                <div className={sty.ticket_modal_selected}>
+                  <div>
+                  {
+                    selectedSeat.map(({id,seat_number,grade}) => (
+                    <button type='button' key={id} className={cx('ticket_seat_btn', 'ticket_selected_btn', { [`ticket_${grade}_seat`]: grade })}>
+                      <span>
+                        <span className={sty.ticket_uppercase}>{String(grade).toUpperCase()}석</span>
+                      </span>
+                      <span>{seat_number}번</span>
+                    </button>
+                    ))
+                  }     
+                  </div>
+                  <p className={sty.ticket_selected_seat_notice}>총 {selectedSeat.length}석 선택되었습니다.</p>
+                </div>
+              )}
             </div>
 
             <div className={sty.ticket_modal_aside_btm}>
               <Link
-                href={{
-                  pathname: '#',
-                }}
-              >좌석 선택 완료</Link>
+                href="#"
+                className={cx({disabled : !selectedSeat})}
+              >
+                좌석 선택 완료
+              </Link>
               <div className={sty.ticket_modal_aside_btm_btns}>
-                <button type="button">취소 후 창닫기</button>
-                <button type="button">좌석 다시 선택</button>
+                <button type='button'>취소 후 창닫기</button>
+                <button type='button' onClick={resetSeat}>좌석 다시 선택</button>
               </div>
             </div>
-            <button type="button" className={sty.seat_help_info}>좌석 선택시 유의사항</button>
+            <button type='button' className={sty.seat_help_info}>
+              <IoAlertCircleOutline/> 좌석 선택시 유의사항
+            </button>
           </div>
         </div>
       </div>
