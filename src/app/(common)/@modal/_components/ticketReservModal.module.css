@@ -15,7 +15,24 @@
   justify-content: center;
 }
 .ticket_modal_con {
-  padding: 20px;
+  padding: 30px 20px;
   background: var(--white-color);
   border-radius: 8px;
+  width: 90dvw;
+  max-width: 1040px;
+}
+.ticket_modal_top {
+  padding: 0 0 15px;
+  margin: 0 0 15px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  border-bottom : 2px solid var(--border-color);
+}
+.ticket_modal_top span {
+  display: inline-block;
+}
+.ticket_modal_top span:not(:first-child) {
+  font-weight: 500;
+  font-size: 1.15rem;
+  margin: 0 0 0 10px;
 }
