@@ -14,7 +14,7 @@ type IProp = {
 export default function TicketSeat({setSelectedSeat} : IProp) {
   const [seats, setSeats] = useState<SelectedSeatState>(null);
   const handleSeatSelect = () => {
-    const dommy = [{ id:1, seat_number: 12, grade: 'a'},{ id:2, seat_number: 25, grade: 'r'}];
+    const dommy : SelectedSeatState = [{ id:1, seat_number: 12, grade: 'a'},{ id:2, seat_number: 25, grade: 'r'}];
     setSeats(dommy);
   }
 

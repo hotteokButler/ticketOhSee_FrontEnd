@@ -10,16 +10,24 @@ import classNames from 'classnames/bind';
 
 const cx = classNames.bind(sty);
 
-export type SelectedSeat = { seat_number: number; grade: number | string; id:number; };
+export type SeatGrade = 'vip' | 'r' | 's' | 'a';
+export type SelectedSeat = { seat_number: number; grade: SeatGrade; id:number; };
 export type SelectedSeatState = SelectedSeat[] | null;
+export type SeatInfo =  {id : number, grade: SeatGrade, remain:number, price: number}
+export type SeatInfoState = SeatInfo[] | null;
 
 export default function TicketReservModal({ id, date }: { id: string; date?: string }) {
   const router = useRouter();
   const [selectedSeat, setSelectedSeat] = useState<SelectedSeatState>(null);
+  const [seatInfo, setSeatInfo] = useState<SeatInfoState>()
 
   const resetSeat : React.MouseEventHandler<HTMLButtonElement> = ( e) => {
     e.preventDefault();
     setSelectedSeat(prev => null);
+  }
+  const goBackRoute : React.MouseEventHandler<HTMLButtonElement> = (e) => {
+    e.preventDefault();
+    router.back();
   }
 
   useEffect(() => {
@@ -28,34 +36,34 @@ export default function TicketReservModal({ id, date }: { id: string; date?: str
       router.replace(`/ticket/${id}`, { scroll: false });
       return;
     }
+    setSeatInfo([
+      {
+        id: 1,
+        grade: 'vip',
+        remain: 210,
+        price: 180000,
+      },
+      {
+        id: 2,
+        grade: 'r',
+        remain: 249,
+        price: 150000,
+      },
+      {
+        id: 3,
+        grade: 's',
+        remain: 160,
+        price: 120000,
+      },
+      {
+        id:4,
+        grade: 'a',
+        remain: 100,
+        price: 90000,
+      },
+    ])
   }, [date ,selectedSeat]);
 
-  const dommyPrice = [
-    {
-      id: 1,
-      grade: 'vip',
-      remain: 210,
-      price: 180000,
-    },
-    {
-      id: 2,
-      grade: 'r',
-      remain: 249,
-      price: 150000,
-    },
-    {
-      id: 3,
-      grade: 's',
-      remain: 160,
-      price: 120000,
-    },
-    {
-      id:4,
-      grade: 'a',
-      remain: 100,
-      price: 90000,
-    },
-  ];
 
   return (
     <div area-label='reservation_modal' className={sty.ticket_modal_wrap}>
@@ -76,7 +84,7 @@ export default function TicketReservModal({ id, date }: { id: string; date?: str
               <div className={sty.ticket_modal_price_remain}>
                 <h5>좌석등급/잔여석</h5>
                 <menu type='toolbar'>
-                  {dommyPrice.map(({ id, grade, remain, price }) => (
+                  { seatInfo && seatInfo.map(({ id, grade, remain, price }) => (
                     <button type='button' key={id} className={cx('ticket_seat_btn', { [`ticket_${grade}_seat`]: grade })}>
                       <span>
                         <span className={sty.ticket_uppercase}>{grade.toUpperCase()}석</span>
@@ -115,7 +123,7 @@ export default function TicketReservModal({ id, date }: { id: string; date?: str
                 좌석 선택 완료
               </Link>
               <div className={sty.ticket_modal_aside_btm_btns}>
-                <button type='button'>취소 후 창닫기</button>
+                <button type='button' onClick={goBackRoute}>취소 후 창닫기</button>
                 <button type='button' onClick={resetSeat}>좌석 다시 선택</button>
               </div>
             </div>
