@@ -7,27 +7,35 @@ import TicketSeat from './TicketSeat';
 import Link from 'next/link';
 import { IoAlertCircleOutline } from "react-icons/io5";
 import classNames from 'classnames/bind';
+import TicketHelpInfo from './TicketHelpInfo';
 
 const cx = classNames.bind(sty);
 
 export type SeatGrade = 'vip' | 'r' | 's' | 'a';
 export type SelectedSeat = { seat_number: number; grade: SeatGrade; id:number; };
 export type SelectedSeatState = SelectedSeat[] | null;
-export type SeatInfo =  {id : number, grade: SeatGrade, remain:number, price: number}
-export type SeatInfoState = SeatInfo[] | null;
+export type SeatData =  {id : number, grade: SeatGrade, remain:number, price: number}
+export type SeatDataState = SeatData[] | null;
 
 export default function TicketReservModal({ id, date }: { id: string; date?: string }) {
   const router = useRouter();
   const [selectedSeat, setSelectedSeat] = useState<SelectedSeatState>(null);
-  const [seatInfo, setSeatInfo] = useState<SeatInfoState>()
+  const [seatData, setSeatData] = useState<SeatDataState>(null)
+  const [seatInfoActive, setSeatInfoActive] = useState<boolean>(false);
 
   const resetSeat : React.MouseEventHandler<HTMLButtonElement> = ( e) => {
     e.preventDefault();
     setSelectedSeat(prev => null);
   }
-  const goBackRoute : React.MouseEventHandler<HTMLButtonElement> = (e) => {
+
+  const goBackRoute : React.MouseEventHandler<HTMLButtonElement> = (e) => { 
     e.preventDefault();
     router.back();
+  }
+
+  const handleOpenSeatInfo : React.MouseEventHandler<HTMLButtonElement> = (e) => {
+    e.preventDefault();
+    setSeatInfoActive(prev => !prev);
   }
 
   useEffect(() => {
@@ -36,7 +44,7 @@ export default function TicketReservModal({ id, date }: { id: string; date?: str
       router.replace(`/ticket/${id}`, { scroll: false });
       return;
     }
-    setSeatInfo([
+    setSeatData([
       {
         id: 1,
         grade: 'vip',
@@ -67,6 +75,7 @@ export default function TicketReservModal({ id, date }: { id: string; date?: str
 
   return (
     <div area-label='reservation_modal' className={sty.ticket_modal_wrap}>
+      {/* ticket_modal_con START ====== */}
       <div className={sty.ticket_modal_con}>
         <div className={sty.ticket_modal_top}>
           <h4>
@@ -75,16 +84,20 @@ export default function TicketReservModal({ id, date }: { id: string; date?: str
             <span>14:25</span>
           </h4>
         </div>
+        {/* ticket_modal_main START ====== */}
         <div className={sty.ticket_modal_main}>
           <TicketSeat setSelectedSeat={setSelectedSeat} />
-
+         
+          {/* ticket_modal_aside START ====== */}
           <div className={sty.ticket_modal_aside}>
+           
+            {/* ticket_modal_aside_top START ====== */}
             <div className={sty.ticket_modal_aside_top}>
               {/* 좌석등급 / 잔여석 */}
               <div className={sty.ticket_modal_price_remain}>
                 <h5>좌석등급/잔여석</h5>
                 <menu type='toolbar'>
-                  { seatInfo && seatInfo.map(({ id, grade, remain, price }) => (
+                  { seatData && seatData.map(({ id, grade, remain, price }) => (
                     <button type='button' key={id} className={cx('ticket_seat_btn', { [`ticket_${grade}_seat`]: grade })}>
                       <span>
                         <span className={sty.ticket_uppercase}>{grade.toUpperCase()}석</span>
@@ -114,7 +127,9 @@ export default function TicketReservModal({ id, date }: { id: string; date?: str
                 </div>
               )}
             </div>
+            {/* ticket_modal_aside_top E N D ====== */}
 
+            {/* ticket_modal_aside_btm START ====== */}
             <div className={sty.ticket_modal_aside_btm}>
               <Link
                 href="#"
@@ -127,12 +142,22 @@ export default function TicketReservModal({ id, date }: { id: string; date?: str
                 <button type='button' onClick={resetSeat}>좌석 다시 선택</button>
               </div>
             </div>
-            <button type='button' className={sty.seat_help_info}>
+            {/* ticket_modal_aside_btm E N D ====== */}
+
+            <button type='button' onClick={handleOpenSeatInfo} className={sty.seat_help_info}>
               <IoAlertCircleOutline/> 좌석 선택시 유의사항
             </button>
           </div>
         </div>
+        {/* ticket_modal_main E N D ====== */}
+
+        { // TicketHelpInfo modal  ======
+          seatInfoActive && <TicketHelpInfo set_active={setSeatInfoActive}/>
+        }
+        
       </div>
+      {/* ticket_modal_con E N D ====== */}
+      
     </div>
   );
 }

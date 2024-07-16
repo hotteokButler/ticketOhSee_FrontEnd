@@ -1,0 +1,55 @@
+@charset 'utf-8';
+
+.ticket_help_wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right:0;
+  bottom:0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  z-index:1;
+}
+.ticket_help_con{
+  width: 50%;
+  border: 2px solid var(--footer-bg);
+  border-radius: 4px;
+  background: var(--white-color);
+  box-shadow: 1px 1px 10px rgba(0,0,0,0.15);
+}
+.ticket_help_top{
+  position: relative;
+  padding: 10px;
+  background: var(--footer-bg);
+  color: var(--white-color);
+}
+.ticket_help_top h5 {
+  display: inline-block;
+}
+.ticket_help_top button  {
+  position: absolute;
+  top: 50%;
+  right: 5px;
+  transform: translateY(-50%);
+  padding: 5px;
+}
+.ticket_help_top button:hover{
+  opacity: 0.7;
+}
+.ticket_help_top button svg {
+  width: 20px;
+  height: 20px;
+  vertical-align: text-top;
+  fill: var(--white-color);
+}
+.ticket_help_txt{
+  padding: 25px 20px;
+  word-break: break-all;
+  max-height: 200px;
+  font-size: 0.8rem;
+  overflow: auto;
+  line-height: 1.3;
+}

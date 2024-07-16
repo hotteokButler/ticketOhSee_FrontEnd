@@ -15,6 +15,7 @@
   justify-content: center;
 }
 .ticket_modal_con {
+  position: relative;
   padding: 30px 20px;
   background: var(--white-color);
   border-radius: 8px;
