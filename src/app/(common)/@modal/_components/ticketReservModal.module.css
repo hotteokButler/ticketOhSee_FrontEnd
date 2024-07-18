@@ -155,7 +155,7 @@
   padding: 10px 0;
   text-align: center;
 }
-.ticket_modal_aside_btm > a {
+.ticket_modal_aside_btm > button {
   border-radius: 4px;
   border: 2px solid var(--primary-color);
   background: var(--primary-color);
@@ -164,11 +164,11 @@
   padding: 15px 10px;
   font-size: 1.1rem;
 }
-.ticket_modal_aside_btm > a:hover {
+.ticket_modal_aside_btm > button:hover {
   opacity:0.7;
 }
-.ticket_modal_aside_btm > a.disabled,
-.ticket_modal_aside_btm > a.disabled:hover
+.ticket_modal_aside_btm > button.disabled,
+.ticket_modal_aside_btm > button.disabled:hover
 {
   color: var(--white-color);
   background: var(--border-color);

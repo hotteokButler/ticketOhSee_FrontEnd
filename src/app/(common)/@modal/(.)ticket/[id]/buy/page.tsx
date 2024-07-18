@@ -5,7 +5,7 @@ export default function BuyTicketParallelPage({
   searchParams: { date },
 }: {
   params: { id: string };
-  searchParams: { date ?: string };
+  searchParams: { date ?: string   };
 }) {
-  return <TicketReservModal id={id} date={date} />;
+  return <TicketReservModal id={id} date={ date} />;
 }
